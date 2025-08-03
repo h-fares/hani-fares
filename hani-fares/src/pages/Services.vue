@@ -10,7 +10,7 @@
     <!-- Service Category: Web & Digital -->
     <ServiceCategory
         title="Web & Digital"
-        image="/images/web.jpg"
+        :image="webImage"
         :services="[
         'Website design & development (Landing pages, Portfolios, Business sites)',
         'Hosting setup, SEO basics'
@@ -21,7 +21,7 @@
     <!-- Service Category: Design -->
     <ServiceCategory
         title="Design"
-        image="/images/design.jpg"
+        :image="menuImage"
         :services="[
         'Restaurant menu design',
         'Business cards, CV layouts, social media templates'
@@ -32,7 +32,7 @@
     <!-- Service Category: Career & Software Services -->
     <ServiceCategory
         title="Career & Software Services"
-        image="/images/career.jpg"
+        :image="cvImage"
         :services="[
         'CV writing help',
         'LinkedIn optimization',
@@ -45,6 +45,9 @@
 
 <script setup>
 import ServiceCategory from '@/components/ServiceCategory.vue'
+import webImage from '@/assets/images/web.jpg'
+import menuImage from '@/assets/images/menu.jpg'
+import cvImage from '@/assets/images/cv.jpg'
 </script>
 
 <style scoped>

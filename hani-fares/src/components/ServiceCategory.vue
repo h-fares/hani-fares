@@ -1,18 +1,20 @@
 <template>
   <Card :class="animation + ' overflow-hidden'">
-    <div class="grid md:grid-cols-2">
+    <div class="flex flex-col md:grid md:grid-cols-2">
       <!-- Image -->
-      <AspectRatio ratio="16/9" class="md:rounded-l-xl overflow-hidden">
+      <div class="w-full h-52 md:h-auto">
         <img :src="image" alt="" class="w-full h-full object-cover" />
-      </AspectRatio>
+      </div>
 
       <!-- Content -->
       <div class="p-6 flex flex-col justify-center gap-4">
-        <h2 class="text-xl font-semibold text-foreground">{{ title }}</h2>
+        <h2 class="text-2xl font-bold text-foreground">{{ title }}</h2>
         <Separator />
-        <ul class="list-disc list-inside space-y-1 text-muted-foreground">
-          <li v-for="(item, index) in services" :key="index">{{ item }}</li>
-        </ul>
+        <div class="space-y-2 text-sm text-muted-foreground leading-relaxed">
+          <p v-for="(item, index) in services" :key="index">
+            • {{ item }}
+          </p>
+        </div>
       </div>
     </div>
   </Card>
