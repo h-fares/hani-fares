@@ -2,7 +2,21 @@
   <header class="sticky top-0 z-50 w-full border-b bg-background">
     <nav class="container mx-auto flex h-16 items-center justify-between px-4">
       <!-- Logo -->
-      <RouterLink to="/" class="text-xl font-bold">Hani Fares</RouterLink>
+      <RouterLink 
+        to="/" 
+        class="flex items-center gap-3 hover:opacity-80 transition-opacity duration-200 group"
+      >
+        <div class="relative">
+          <img 
+            :src="logoImage" 
+            alt="Hani Fares Logo" 
+            class="h-10 w-10 object-contain group-hover:scale-105 transition-transform duration-200"
+          />
+        </div>
+        <span class="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          Hani Fares
+        </span>
+      </RouterLink>
 
       <!-- Desktop Nav -->
       <ul class="hidden md:flex gap-6 text-sm font-medium items-center">
@@ -37,4 +51,5 @@ import { RouterLink } from 'vue-router'
 import { Button } from '@/components/ui/button'
 import { Popover, PopoverTrigger, PopoverContent } from '@/components/ui/popover'
 import { MenuIcon } from 'lucide-vue-next'
+import logoImage from '@/assets/images/logo.png'
 </script>
