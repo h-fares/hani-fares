@@ -5,7 +5,7 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   plugins: [vue(), tailwindcss()],
-  base: process.env.NODE_ENV === 'production' ? '/hani-fares/' : '/',
+  base: '/hani-fares/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
