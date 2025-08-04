@@ -19,12 +19,13 @@
 
 <script setup>
 import PortfolioCard from '@/components/PortfolioCard.vue'
+import syrresImage from '../assets/images/syr-res.png'
 
 const projects = [
   {
     title: 'Syrian Researchers Website',
     description: 'I developed a structured and modern frontend for Syrian Researchers, optimized for clarity and responsiveness.',
-    image: '/images/syrian-researchers.jpg'
+    image: syrresImage
   },
   {
     title: 'Hausinternational Webpage',
