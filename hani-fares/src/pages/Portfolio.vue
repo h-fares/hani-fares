@@ -64,6 +64,10 @@ import { ref, computed } from 'vue'
 import { Button } from '@/components/ui/button'
 import PortfolioCard from '@/components/PortfolioCard.vue'
 import syrresImage from '../assets/images/syr-res.png'
+import hausinternationalImage from '../assets/images/hausinternational.jpg'
+import menusImage from '../assets/images/menus.jpg'
+import eventImage from '../assets/images/event-management.jpg'
+import careerImage from '../assets/images/career-support.jpg'
 
 const activeFilter = ref('all')
 
@@ -82,21 +86,21 @@ const projects = [
     longDescription: 'Built a modern, responsive website for the Syrian Researchers community with Vue.js and Laravel backend. Features include researcher profiles, publication management, and collaborative tools.',
     image: syrresImage,
     category: 'web',
-    technologies: ['Vue.js', 'Laravel', 'MySQL', 'Tailwind CSS'],
+    technologies: ['Laravel', 'Vue.js', 'MySQL', 'Docker', 'Tailwind CSS'],
     features: ['Responsive Design', 'User Authentication', 'Advanced Search', 'Content Management'],
-    link: '#',
+    link: 'https://syrian-researchers.com/',
     github: '#'
   },
   {
     id: 2,
     title: 'Hausinternational Webpage',
-    description: 'Professional multilingual website showcasing accommodation services with booking integration.',
-    longDescription: 'Developed a multilingual website for Hausinternational with integrated booking system, property management, and multilingual content support.',
-    image: '/images/hausinternational.jpg',
+    description: 'Professional website showcasing accommodation services with calendar integration.',
+    longDescription: 'Developed a website for Hausinternational Kempten with integrated calendar system, property management, and multilingual content support.',
+    image: hausinternationalImage,
     category: 'web',
     technologies: ['HTML5', 'CSS3', 'JavaScript', 'PHP'],
     features: ['Multilingual Support', 'Booking System', 'Property Management', 'SEO Optimized'],
-    link: '#',
+    link: 'https://hausinternationa-1e2vvth38n.live-website.com/',
     github: '#'
   },
   {
@@ -104,7 +108,7 @@ const projects = [
     title: 'Restaurant Menu Design Suite',
     description: 'Complete brand identity and menu design system for multiple restaurant chains.',
     longDescription: 'Created comprehensive menu designs and brand identity packages for various restaurants, including digital and print versions with QR code integration.',
-    image: '/images/menus.jpg',
+    image: menusImage,
     category: 'design',
     technologies: ['Adobe Illustrator', 'Photoshop', 'InDesign'],
     features: ['Brand Identity', 'Print Design', 'Digital Menus', 'QR Code Integration'],
@@ -115,7 +119,7 @@ const projects = [
     title: 'Event Management Platform',
     description: 'Full-featured event management system with booking, payments, and vendor coordination.',
     longDescription: 'Developed a comprehensive event management platform for wedding and event coordinators with client portals, vendor management, and payment processing.',
-    image: '/images/event-management.jpg',
+    image: eventImage,
     category: 'web',
     technologies: ['Laravel', 'Vue.js', 'Stripe API', 'Docker'],
     features: ['Event Planning', 'Vendor Management', 'Payment Processing', 'Client Portal'],
@@ -126,25 +130,25 @@ const projects = [
     id: 5,
     title: 'Career Enhancement Services',
     description: 'Complete career development package including CV design, LinkedIn optimization, and interview coaching.',
-    longDescription: 'Provided comprehensive career support services including modern CV designs, LinkedIn profile optimization, and personal branding strategies.',
-    image: '/images/career-support.jpg',
+    longDescription: 'As a member in Imagine Foundation and Mentory SY Provided comprehensive career support services including modern CV designs, LinkedIn profile optimization, and personal branding strategies.',
+    image: careerImage,
     category: 'design',
     technologies: ['Adobe Creative Suite', 'LinkedIn Analytics'],
     features: ['CV Design', 'LinkedIn Optimization', 'Personal Branding', 'Interview Coaching'],
-    link: '#'
+    link: 'https://www.linkedin.com/in/hani-fares-072bb5a4/'
   },
-  {
-    id: 6,
-    title: 'E-Commerce Platform',
-    description: 'Scalable e-commerce solution with advanced inventory management and analytics.',
-    longDescription: 'Built a comprehensive e-commerce platform with inventory management, order processing, payment integration, and detailed analytics dashboard.',
-    image: '/images/ecommerce.jpg',
-    category: 'web',
-    technologies: ['Laravel', 'Vue.js', 'MySQL', 'Redis', 'Docker'],
-    features: ['Inventory Management', 'Payment Processing', 'Analytics Dashboard', 'Multi-vendor Support'],
-    link: '#',
-    github: '#'
-  }
+  // {
+  //   id: 6,
+  //   title: 'E-Commerce Platform',
+  //   description: 'Scalable e-commerce solution with advanced inventory management and analytics.',
+  //   longDescription: 'Built a comprehensive e-commerce platform with inventory management, order processing, payment integration, and detailed analytics dashboard.',
+  //   image: '/images/ecommerce.jpg',
+  //   category: 'web',
+  //   technologies: ['Laravel', 'Vue.js', 'MySQL', 'Redis', 'Docker'],
+  //   features: ['Inventory Management', 'Payment Processing', 'Analytics Dashboard', 'Multi-vendor Support'],
+  //   link: '#',
+  //   github: '#'
+  // }
 ]
 
 const filteredProjects = computed(() => {
