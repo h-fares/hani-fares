@@ -51,24 +51,27 @@
           
           <!-- Enhanced CTA Buttons -->
           <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-600">
-            <Button 
-              as="RouterLink" 
-              to="/contact" 
-              size="lg" 
-              class="group bg-gradient-to-r from-primary to-secondary hover:from-primary/80 hover:to-secondary/80 transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-primary/25"
-            >
-              Let's Work Together
-              <ArrowRightIcon class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button 
-              as="RouterLink" 
-              to="/portfolio" 
-              variant="outline" 
-              size="lg"
-              class="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm transform hover:scale-105 transition-all duration-300"
-            >
-              View My Work
-            </Button>
+            <RouterLink to="/contact">
+              <Button
+                  as="RouterLink"
+                  to="/contact"
+                  size="lg"
+                  class="group bg-gradient-to-r from-primary to-secondary hover:from-primary/80 hover:to-secondary/80 transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-primary/25"
+              >
+                Let's Work Together
+                <ArrowRightIcon class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"/>
+              </Button>
+            </RouterLink>
+            <RouterLink to="/portfolio">
+              <Button
+                  as="RouterLink"
+                  variant="outline"
+                  size="lg"
+                  class="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm transform hover:scale-105 transition-all duration-300"
+              >
+                View My Work
+              </Button>
+            </RouterLink>
           </div>
           
           <!-- Scroll Indicator -->
@@ -89,7 +92,7 @@
               About Me
             </h2>
             <p class="text-xl text-primary font-medium">
-              Full-Stack Developer | Release Manager | Digital Solutions Expert
+              Full-Stack Developer | Digital Solutions Expert | Mentor
             </p>
             <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
           </div>
@@ -104,10 +107,10 @@
               I thrive on architecting scalable, maintainable systems that solve real business challenges.
             </p>
             <p>
-              As a <span class="text-foreground font-medium">release manager</span>, I ensure smooth deployments and serve as the bridge between product managers and developers, bringing both technical expertise and strategic thinking to every project.
+              I empower small businesses to refresh their brand identity through professional website design, menu creation, and other digital assets.
             </p>
             <p>
-              Beyond development, I offer a comprehensive range of digital services — from building high-performance websites and landing pages to helping clients craft standout CVs and optimize their LinkedIn presence.
+              As a <span class="text-foreground font-medium">mentor</span>, I guide aspiring developers in building a strong foundation for their careers by helping them craft compelling CVs and professional LinkedIn profiles.
             </p>
           </div>
           
@@ -159,23 +162,25 @@
       <div class="grid md:grid-cols-3 gap-8">
         <Card class="group p-8 hover:shadow-2xl transition-all duration-500 hover:scale-105 border-2 hover:border-primary/20 relative overflow-hidden">
           <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          <div class="relative space-y-4">
+          <div class="relative space-y-4 flex flex-col items-center">
             <div class="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <CodeIcon class="w-6 h-6 text-white" />
             </div>
-            <h3 class="text-2xl font-bold text-foreground">Web & Digital</h3>
+            <h3 class="text-2xl font-bold text-foreground">High performed Software</h3>
             <p class="text-muted-foreground leading-relaxed">
-              Custom websites from landing pages to full business platforms. Complete with hosting, SEO optimization, and analytics integration.
+              I build robust web and digital platforms using Laravel, Vue.js, Docker, and Kubernetes. My expertise covers the entire process, from architecture and development to hosting and SEO optimization.
             </p>
-            <Button variant="ghost" size="sm" class="group-hover:text-primary transition-colors">
-              Learn More →
-            </Button>
+            <RouterLink to="/services">
+              <Button variant="ghost" size="sm" class="group-hover:text-primary transition-colors">
+                Learn More →
+              </Button>
+            </RouterLink>
           </div>
         </Card>
 
         <Card class="group p-8 hover:shadow-2xl transition-all duration-500 hover:scale-105 border-2 hover:border-secondary/20 relative overflow-hidden">
           <div class="absolute inset-0 bg-gradient-to-br from-secondary/5 via-transparent to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          <div class="relative space-y-4">
+          <div class="relative space-y-4 flex flex-col items-center">
             <div class="w-12 h-12 bg-gradient-to-br from-secondary to-accent rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <PaletteIcon class="w-6 h-6 text-white" />
             </div>
@@ -183,15 +188,17 @@
             <p class="text-muted-foreground leading-relaxed">
               From restaurant menus and business cards to social media templates — modern design that captures your brand essence.
             </p>
-            <Button variant="ghost" size="sm" class="group-hover:text-secondary transition-colors">
-              View Portfolio →
-            </Button>
+            <RouterLink to="/portfolio">
+              <Button variant="ghost" size="sm" class="group-hover:text-secondary transition-colors">
+                View Portfolio →
+              </Button>
+            </RouterLink>
           </div>
         </Card>
 
         <Card class="group p-8 hover:shadow-2xl transition-all duration-500 hover:scale-105 border-2 hover:border-accent/20 relative overflow-hidden">
           <div class="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          <div class="relative space-y-4">
+          <div class="relative space-y-4 flex flex-col items-center">
             <div class="w-12 h-12 bg-gradient-to-br from-accent to-primary rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <UserIcon class="w-6 h-6 text-white" />
             </div>
@@ -199,16 +206,18 @@
             <p class="text-muted-foreground leading-relaxed">
               Professional CV writing, LinkedIn optimization, and expert Laravel & Vue.js mentoring to advance your career.
             </p>
-            <Button variant="ghost" size="sm" class="group-hover:text-accent transition-colors">
-              Get Started →
-            </Button>
+            <RouterLink to="/contact">
+              <Button variant="ghost" size="sm" class="group-hover:text-accent transition-colors">
+                Get Started →
+              </Button>
+            </RouterLink>
           </div>
         </Card>
       </div>
     </div>
 
     <!-- Enhanced Technologies Section -->
-    <div class="max-w-6xl mx-auto animate-fade-in-up delay-600">
+    <div class="max-w-6xl mx-auto animate-fade-in-up delay-600 ">
       <div class="text-center space-y-6 mb-12">
         <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
           Tech Stack
@@ -218,7 +227,7 @@
         </p>
       </div>
       
-      <div class="grid gap-6 grid-cols-2 md:grid-cols-4 lg:grid-cols-8">
+      <div class="grid gap-6 grid-cols-2 md:grid-cols-4 lg:grid-cols-7 ">
         <TechBadge name="Laravel" color="primary" />
         <TechBadge name="Vue.js" color="secondary" />
         <TechBadge name="Docker" color="accent" />
@@ -226,7 +235,6 @@
         <TechBadge name="Tailwind CSS" color="secondary" />
         <TechBadge name="Kubernetes" color="accent" />
         <TechBadge name="GitLab CI/CD" color="primary" />
-        <TechBadge name="Event Sourcing" color="secondary" />
       </div>
     </div>
 
@@ -239,13 +247,17 @@
         </p>
       </div>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <Button as="RouterLink" to="/contact" size="lg" class="group bg-gradient-to-r from-primary to-secondary hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
-          Start Your Project
-          <RocketIcon class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-        </Button>
-        <Button as="RouterLink" to="/services" variant="outline" size="lg" class="transform hover:scale-105 transition-all duration-300">
-          Explore Services
-        </Button>
+        <RouterLink to="/contact" >
+          <Button as="RouterLink" size="lg" class="group bg-gradient-to-r from-primary to-secondary hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+            Start Your Project
+            <RocketIcon class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+          </Button>
+        </RouterLink>
+        <RouterLink to="/services">
+          <Button as="RouterLink" variant="outline" size="lg" class="transform hover:scale-105 transition-all duration-300">
+            Explore Services
+          </Button>
+        </RouterLink>
       </div>
     </div>
 
