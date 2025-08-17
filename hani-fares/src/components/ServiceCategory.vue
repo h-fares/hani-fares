@@ -38,8 +38,9 @@
             >
               <div class="w-2 h-2 rounded-full mt-2 flex-shrink-0" :class="dotColorClass"></div>
               <div class="space-y-1">
-                <h4 class="font-medium text-foreground">{{ service.title }}</h4>
-                <p class="text-sm text-muted-foreground">{{ service.description }}</p>
+                <h4 class="font-medium text-foreground float-left">{{ service.title }}</h4>
+                <br>
+                <p class="text-sm text-muted-foreground float-left">{{ service.description }}</p>
               </div>
             </div>
           </div>
@@ -70,15 +71,16 @@
 
         <!-- CTA Button -->
         <div class="pt-2">
-          <Button 
-            as="RouterLink" 
-            to="/contact" 
-            :variant="color === 'primary' ? 'default' : 'outline'"
-            class="group/btn hover:scale-105 transition-transform duration-200"
-          >
-            Get Started
-            <ArrowRightIcon class="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
-          </Button>
+          <RouterLink to="/contact">
+            <Button
+                as="RouterLink"
+                :variant="color === 'primary' ? 'default' : 'outline'"
+                class="group/btn hover:scale-105 transition-transform duration-200"
+            >
+              Get Started
+              <ArrowRightIcon class="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
+            </Button>
+          </RouterLink>
         </div>
       </div>
     </div>

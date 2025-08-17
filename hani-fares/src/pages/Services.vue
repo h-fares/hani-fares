@@ -21,7 +21,6 @@
           :image="webImage"
           :services="webServices"
           :features="webFeatures"
-          :pricing="webPricing"
           color="primary"
           reverse="false"
         />
@@ -35,7 +34,6 @@
           :image="menuImage"
           :services="designServices"
           :features="designFeatures"
-          :pricing="designPricing"
           color="secondary"
           reverse="true"
         />
@@ -49,7 +47,6 @@
           :image="cvImage"
           :services="careerServices"
           :features="careerFeatures"
-          :pricing="careerPricing"
           color="accent"
           reverse="false"
         />
@@ -81,13 +78,17 @@
         Let's discuss how I can help bring your vision to life with cutting-edge technology and creative excellence.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <Button as="RouterLink" to="/contact" size="lg" class="group">
-          Get Started Today
-          <ArrowRightIcon class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-        </Button>
-        <Button as="RouterLink" to="/portfolio" variant="outline" size="lg">
-          View My Work
-        </Button>
+        <RouterLink to="/contact">
+          <Button as="RouterLink"  size="lg" class="group">
+            Get Started Today
+            <ArrowRightIcon class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+          </Button>
+        </RouterLink>
+       <RouterLink to="/portfolio">
+         <Button as="RouterLink"  variant="outline" size="lg">
+           View My Work
+         </Button>
+       </RouterLink>
       </div>
     </div>
   </section>
@@ -175,10 +176,6 @@ const careerServices = [
   {
     title: 'LinkedIn Optimization',
     description: 'Profile optimization and content strategy for maximum visibility'
-  },
-  {
-    title: 'Technical Mentoring',
-    description: 'One-on-one coaching in Laravel, Vue.js, and software architecture'
   },
   {
     title: 'Interview Preparation',
