@@ -205,6 +205,7 @@ import {
   CheckCircleIcon
 } from 'lucide-vue-next'
 import { RouterLink } from 'vue-router'
+import emailjs from '@emailjs/browser'
 
 const form = ref({
   name: '',
@@ -219,16 +220,24 @@ async function submit() {
   isSubmitting.value = true
   
   try {
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000))
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
     
-    // Here you would integrate with your preferred service:
-    // - Formspree: https://formspree.io/
-    // - EmailJS: https://www.emailjs.com/
-    // - Netlify Forms: Built-in form handling
-    // - Your own backend API
+    if (!serviceId || !templateId || !publicKey) {
+      throw new Error('EmailJS configuration missing. Please check your environment variables.')
+    }
+
+    const templateParams = {
+      from_name: form.value.name,
+      from_email: form.value.email,
+      project_type: form.value.projectType,
+      message: form.value.message,
+      to_email: 'hani.fares.dev@gmail.com'
+    }
+
+    await emailjs.send(serviceId, templateId, templateParams, publicKey)
     
-    console.log('Form submitted:', form.value)
     alert('Thank you for your message! I\'ll get back to you within 24 hours.')
     
     // Reset form
