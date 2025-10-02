@@ -1,58 +1,97 @@
 <template>
-  <section class="space-y-16">
-    <!-- Header Section -->
-    <div class="text-center space-y-6 relative">
-      <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 rounded-3xl -z-10"></div>
-      <h1 class="text-5xl md:text-6xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent animate-fade-in-up">
-        My Portfolio
-      </h1>
-      <p class="text-muted-foreground text-xl max-w-3xl mx-auto leading-relaxed animate-fade-in-up delay-150">
-        Showcasing innovative digital solutions that drive results. From full-stack applications to brand identity design, 
-        each project reflects my commitment to excellence and user-centered approach.
-      </p>
-      <div class="flex justify-center gap-4 animate-fade-in-up delay-300">
-        <Button @click="filterProjects('all')" :variant="activeFilter === 'all' ? 'default' : 'outline'" size="sm">
-          All Projects
+  <section class="min-h-screen pb-20">
+    <div class="space-y-20">
+      <div class="text-center space-y-8 relative py-12">
+        <div class="absolute inset-0 -z-10 overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-radial from-primary/10 via-transparent to-transparent"></div>
+        </div>
+        
+        <div class="inline-block">
+          <h1 class="text-6xl md:text-7xl font-black tracking-tight mb-4">
+            <span class="bg-gradient-to-r from-primary via-purple-500 to-pink-500 bg-clip-text text-transparent">
+              Featured Work
+            </span>
+          </h1>
+          <div class="h-1.5 bg-gradient-to-r from-primary via-purple-500 to-pink-500 rounded-full"></div>
+        </div>
+        
+        <p class="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto leading-relaxed font-light">
+          Transforming ideas into exceptional digital experiences. Each project represents a unique challenge solved with precision and creativity.
+        </p>
+      </div>
+
+      <div class="flex justify-center gap-3 flex-wrap">
+        <Button 
+          @click="activeFilter = 'all'" 
+          :variant="activeFilter === 'all' ? 'default' : 'outline'" 
+          class="rounded-full px-6 py-5 font-medium transition-all hover:scale-105"
+          size="lg"
+        >
+          All Work
         </Button>
-        <Button @click="filterProjects('web')" :variant="activeFilter === 'web' ? 'default' : 'outline'" size="sm">
+        <Button 
+          @click="activeFilter = 'web'" 
+          :variant="activeFilter === 'web' ? 'default' : 'outline'"
+          class="rounded-full px-6 py-5 font-medium transition-all hover:scale-105"
+          size="lg"
+        >
           Web Development
         </Button>
-        <Button @click="filterProjects('design')" :variant="activeFilter === 'design' ? 'default' : 'outline'" size="sm">
-          Design
+        <Button 
+          @click="activeFilter = 'design'" 
+          :variant="activeFilter === 'design' ? 'default' : 'outline'"
+          class="rounded-full px-6 py-5 font-medium transition-all hover:scale-105"
+          size="lg"
+        >
+          Design & Branding
         </Button>
       </div>
-    </div>
 
-    <!-- Projects Grid -->
-    <div class="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-      <div 
-        v-for="(project, index) in filteredProjects" 
-        :key="project.id"
-        class="group animate-fade-in-up"
-        :style="{ animationDelay: `${index * 150}ms` }"
-      >
-        <PortfolioCard v-bind="project" />
+      <div class="space-y-12">
+        <TransitionGroup name="project" tag="div" class="space-y-12">
+          <div 
+            v-for="project in filteredProjects" 
+            :key="project.id"
+            class="project-item"
+          >
+            <PortfolioCard v-bind="project" />
+          </div>
+        </TransitionGroup>
       </div>
-    </div>
 
-    <!-- Stats Section -->
-    <div class="bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 rounded-3xl p-8 animate-fade-in-up delay-500">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-        <div class="space-y-2">
-          <div class="text-3xl font-bold text-primary">{{ stats.projectsCompleted }}+</div>
-          <div class="text-sm text-muted-foreground">Projects Completed</div>
-        </div>
-        <div class="space-y-2">
-          <div class="text-3xl font-bold text-secondary">{{ stats.clientsSatisfied }}+</div>
-          <div class="text-sm text-muted-foreground">Satisfied Clients</div>
-        </div>
-        <div class="space-y-2">
-          <div class="text-3xl font-bold text-accent">{{ stats.technologiesUsed }}+</div>
-          <div class="text-sm text-muted-foreground">Technologies</div>
-        </div>
-        <div class="space-y-2">
-          <div class="text-3xl font-bold text-primary">{{ stats.yearsExperience }}+</div>
-          <div class="text-sm text-muted-foreground">Years Experience</div>
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-12 text-white">
+        <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
+        <div class="relative z-10">
+          <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold mb-3">Impact by Numbers</h2>
+            <p class="text-slate-300">Delivering measurable results across all projects</p>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="text-center space-y-2 group">
+              <div class="text-5xl font-black bg-gradient-to-br from-blue-400 to-blue-600 bg-clip-text text-transparent transition-transform group-hover:scale-110">
+                {{ stats.projectsCompleted }}+
+              </div>
+              <div class="text-sm text-slate-400 font-medium uppercase tracking-wider">Projects Delivered</div>
+            </div>
+            <div class="text-center space-y-2 group">
+              <div class="text-5xl font-black bg-gradient-to-br from-green-400 to-green-600 bg-clip-text text-transparent transition-transform group-hover:scale-110">
+                {{ stats.clientsSatisfied }}+
+              </div>
+              <div class="text-sm text-slate-400 font-medium uppercase tracking-wider">Happy Clients</div>
+            </div>
+            <div class="text-center space-y-2 group">
+              <div class="text-5xl font-black bg-gradient-to-br from-purple-400 to-purple-600 bg-clip-text text-transparent transition-transform group-hover:scale-110">
+                {{ stats.technologiesUsed }}+
+              </div>
+              <div class="text-sm text-slate-400 font-medium uppercase tracking-wider">Technologies</div>
+            </div>
+            <div class="text-center space-y-2 group">
+              <div class="text-5xl font-black bg-gradient-to-br from-pink-400 to-pink-600 bg-clip-text text-transparent transition-transform group-hover:scale-110">
+                {{ stats.yearsExperience }}+
+              </div>
+              <div class="text-sm text-slate-400 font-medium uppercase tracking-wider">Years Experience</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -66,6 +105,7 @@ import PortfolioCard from '@/components/PortfolioCard.vue'
 import syrresImage from '../assets/images/syr-res.png'
 import hausinternationalImage from '../assets/images/hausinternational.jpg'
 import menusImage from '../assets/images/menus.jpg'
+import menuImage from '../assets/images/menu.jpg'
 import eventImage from '../assets/images/event-management.jpg'
 import careerImage from '../assets/images/career-support.jpg'
 
@@ -89,7 +129,9 @@ const projects = [
     technologies: ['Laravel', 'Vue.js', 'MySQL', 'Docker', 'Tailwind CSS'],
     features: ['Responsive Design', 'User Authentication', 'Advanced Search', 'Content Management'],
     link: 'https://syrian-researchers.com/',
-    github: '#'
+    github: '#',
+    year: '2024',
+    client: 'Syrian Researchers Community'
   },
   {
     id: 2,
@@ -101,18 +143,26 @@ const projects = [
     technologies: ['HTML5', 'CSS3', 'JavaScript', 'PHP'],
     features: ['Multilingual Support', 'Booking System', 'Property Management', 'SEO Optimized'],
     link: 'https://hausinternationa-1e2vvth38n.live-website.com/',
-    github: '#'
+    github: '#',
+    year: '2023',
+    client: 'Hausinternational Kempten'
   },
   {
     id: 3,
-    title: 'Restaurant Menu Design Suite',
+    title: 'Rebranding & Menu Design',
     description: 'Complete brand identity and menu design system for multiple restaurant chains.',
-    longDescription: 'Created comprehensive menu designs and brand identity packages for various restaurants, including digital and print versions with QR code integration.',
+    longDescription: 'Created comprehensive menu designs and brand identity packages for various restaurants, including digital and print versions with QR code integration. The project encompassed menu layouts, business cards, promotional materials, and complete visual identity systems.',
     image: menusImage,
     category: 'design',
     technologies: ['Adobe Illustrator', 'Photoshop', 'InDesign'],
     features: ['Brand Identity', 'Print Design', 'Digital Menus', 'QR Code Integration'],
-    link: '#'
+    link: '#',
+    year: '2023-2024',
+    client: 'Multiple Restaurant Chains',
+    gallery: [
+      { src: menusImage, title: 'Menu Design Collection', type: 'menu' },
+      { src: menuImage, title: 'Restaurant Menu Layout', type: 'menu' }
+    ]
   },
   {
     id: 4,
@@ -124,7 +174,9 @@ const projects = [
     technologies: ['Laravel', 'Vue.js', 'Stripe API', 'Docker'],
     features: ['Event Planning', 'Vendor Management', 'Payment Processing', 'Client Portal'],
     link: '#',
-    github: '#'
+    github: '#',
+    year: '2023',
+    client: 'Event Coordination Agency'
   },
   {
     id: 5,
@@ -135,20 +187,10 @@ const projects = [
     category: 'design',
     technologies: ['Adobe Creative Suite', 'LinkedIn Analytics'],
     features: ['CV Design', 'LinkedIn Optimization', 'Personal Branding', 'Interview Coaching'],
-    link: 'https://www.linkedin.com/in/hani-fares-072bb5a4/'
-  },
-  // {
-  //   id: 6,
-  //   title: 'E-Commerce Platform',
-  //   description: 'Scalable e-commerce solution with advanced inventory management and analytics.',
-  //   longDescription: 'Built a comprehensive e-commerce platform with inventory management, order processing, payment integration, and detailed analytics dashboard.',
-  //   image: '/images/ecommerce.jpg',
-  //   category: 'web',
-  //   technologies: ['Laravel', 'Vue.js', 'MySQL', 'Redis', 'Docker'],
-  //   features: ['Inventory Management', 'Payment Processing', 'Analytics Dashboard', 'Multi-vendor Support'],
-  //   link: '#',
-  //   github: '#'
-  // }
+    link: 'https://www.linkedin.com/in/hani-fares-072bb5a4/',
+    year: '2022-2024',
+    client: 'Imagine Foundation & Mentory SY'
+  }
 ]
 
 const filteredProjects = computed(() => {
@@ -157,27 +199,36 @@ const filteredProjects = computed(() => {
   }
   return projects.filter(project => project.category === activeFilter.value)
 })
-
-const filterProjects = (filter) => {
-  activeFilter.value = filter
-}
 </script>
 
 <style scoped>
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.bg-gradient-radial {
+  background: radial-gradient(circle at center, var(--tw-gradient-stops));
 }
-.animate-fade-in-up {
-  animation: fade-in-up 0.6s ease-out both;
+
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
-.delay-150 {
-  animation-delay: 150ms;
+
+.project-enter-active,
+.project-leave-active {
+  transition: all 0.5s ease;
+}
+
+.project-enter-from {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.project-leave-to {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+.project-move {
+  transition: transform 0.5s ease;
 }
 </style>
