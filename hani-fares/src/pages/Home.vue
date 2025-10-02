@@ -134,16 +134,32 @@
         <!-- Image Content -->
         <div class="relative group">
           <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-          <Card class="relative overflow-hidden border-2 border-primary/10 group-hover:border-primary/20 transition-all duration-500">
-            <div class="aspect-square relative">
-              <img 
-                src="../assets/images/hani.jpg" 
-                alt="Hani Fares" 
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent group-hover:from-black/40 transition-all duration-500"></div>
-            </div>
-          </Card>
+          <ProfileCard
+              name="Hani Fares"
+              title="Software Engineer"
+              handle="hanifares"
+              status="Online"
+              contact-text="Contact Me"
+              :avatar-url="avatar"
+              :icon-url="pattern"
+              :grain-url="grain"
+              :show-user-info="false"
+              :show-behind-gradient="true"
+              :enable-tilt="true"
+              @contact-click="handleContactClick"
+              class="flex justify-center"
+          />
+<!--          <Card class="relative overflow-hidden border-2 border-primary/10 group-hover:border-primary/20 transition-all duration-500">-->
+<!--            <div class="aspect-square relative">-->
+<!--              <img -->
+<!--                src="../assets/images/hani.jpg" -->
+<!--                alt="Hani Fares" -->
+<!--                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"-->
+<!--              />-->
+<!--              -->
+<!--              <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent group-hover:from-black/40 transition-all duration-500"></div>-->
+<!--            </div>-->
+<!--          </Card>-->
         </div>
       </div>
     </div>
@@ -277,6 +293,10 @@ import {
   RocketIcon 
 } from 'lucide-vue-next'
 import { RouterLink } from 'vue-router'
+import avatar from "@/assets/images/hani-without-bg.png";
+import pattern from "@/assets/images/iconpattern.png";
+import grain from "@/assets/images/grain.webp";
+import ProfileCard from "@/components/ProfileCard.vue";
 </script>
 
 <style scoped>
