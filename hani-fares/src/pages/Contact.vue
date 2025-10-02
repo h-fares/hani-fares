@@ -99,13 +99,13 @@
           <div class="space-y-4">
             <!-- Email -->
             <Card class="group p-6 hover:shadow-lg transition-all duration-300 hover:scale-[1.02] border-2 hover:border-primary/20 cursor-pointer">
-              <a href="mailto:hani.fares.dev@gmail.com" class="flex items-center gap-4">
+              <a href="mailto:info@hani-fares.de" class="flex items-center gap-4">
                 <div class="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <MailIcon class="w-6 h-6 text-white" />
                 </div>
                 <div class="space-y-1">
                   <h3 class="font-semibold text-foreground group-hover:text-primary transition-colors">Email</h3>
-                  <p class="text-sm text-muted-foreground">hani.fares.dev@gmail.com</p>
+                  <p class="text-sm text-muted-foreground">info@hani-fares.de</p>
                 </div>
                 <ExternalLinkIcon class="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors ml-auto" />
               </a>
@@ -113,7 +113,7 @@
 
             <!-- WhatsApp -->
             <Card class="group p-6 hover:shadow-lg transition-all duration-300 hover:scale-[1.02] border-2 hover:border-secondary/20 cursor-pointer">
-              <a href="https://wa.me/4915123456789" target="_blank" class="flex items-center gap-4">
+              <a href="https://wa.me/4917634581486" target="_blank" class="flex items-center gap-4">
                 <div class="w-12 h-12 bg-gradient-to-br from-secondary to-accent rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <MessageCircleIcon class="w-6 h-6 text-white" />
                 </div>

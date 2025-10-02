@@ -8,11 +8,11 @@
         
         <div class="inline-block">
           <h1 class="text-6xl md:text-7xl font-black tracking-tight mb-4">
-            <span class="bg-gradient-to-r from-primary via-purple-500 to-pink-500 bg-clip-text text-transparent">
+            <span class="text-5xl md:text-6xl font-bold bg-gradient-to-r from-accent via-primary to-secondary bg-clip-text text-transparent animate-fade-in-up">
               Featured Work
             </span>
           </h1>
-          <div class="h-1.5 bg-gradient-to-r from-primary via-purple-500 to-pink-500 rounded-full"></div>
+          <div class="h-1.5 bg-gradient-to-r from-accent via-primary to-secondary rounded-full"></div>
         </div>
         
         <p class="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto leading-relaxed font-light">

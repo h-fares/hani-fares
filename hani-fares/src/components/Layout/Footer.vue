@@ -102,19 +102,19 @@
               <Button 
                 as="RouterLink" 
                 to="/contact" 
-                class="bg-gradient-to-r from-primary to-secondary hover:from-primary/80 hover:to-secondary/80 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-primary/25"
+                class="bg-gradient-to-r from-primary cursor-pointer to-secondary hover:from-primary/80 hover:to-secondary/80 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-primary/25"
               >
                 Get In Touch
                 <ArrowRightIcon class="w-4 h-4 ml-2" />
               </Button>
               
               <!-- Social Links -->
-              <div class="flex gap-3">
+              <div class="flex justify-center gap-3">
                 <Button 
                   variant="outline" 
                   size="icon" 
                   as="a" 
-                  href="https://github.com/yourusername" 
+                  href="https://github.com/h-fares"
                   target="_blank" 
                   aria-label="GitHub"
                   class="hover:bg-primary/10 hover:border-primary/30 hover:scale-110 transition-all duration-300"
@@ -125,7 +125,7 @@
                   variant="outline" 
                   size="icon" 
                   as="a" 
-                  href="https://linkedin.com/in/yourprofile" 
+                  href="https://www.linkedin.com/in/hani-fares-072bb5a4/"
                   target="_blank" 
                   aria-label="LinkedIn"
                   class="hover:bg-secondary/10 hover:border-secondary/30 hover:scale-110 transition-all duration-300"
@@ -136,7 +136,7 @@
                   variant="outline" 
                   size="icon" 
                   as="a" 
-                  href="mailto:you@example.com" 
+                  href="mailto:info@hani-fares.de"
                   aria-label="Email"
                   class="hover:bg-accent/10 hover:border-accent/30 hover:scale-110 transition-all duration-300"
                 >
