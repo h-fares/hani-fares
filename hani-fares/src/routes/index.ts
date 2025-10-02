@@ -4,12 +4,14 @@ import Home from '@/pages/Home.vue'
 import Services from '@/pages/Services.vue'
 import Portfolio from '@/pages/Portfolio.vue'
 import Contact from '@/pages/Contact.vue'
+import MyProfileCard from '@/pages/MyProfileCard.vue'
 
 const routes = [
     { path: '/', name: 'Home', component: Home },
     { path: '/services', name: 'Services', component: Services },
     { path: '/portfolio', name: 'Portfolio', component: Portfolio },
     { path: '/contact', name: 'Contact', component: Contact },
+    { path: '/my-card', name: 'MyCard', component: MyProfileCard },
 ]
 
 export const router = createRouter({
