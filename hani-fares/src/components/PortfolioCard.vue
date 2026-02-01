@@ -60,10 +60,10 @@
               </div>
 
               <div class="flex items-center gap-3 mt-6 pt-6 border-t border-border">
-                <Button variant="ghost" size="sm" class="text-primary hover:text-primary hover:bg-primary/10 font-semibold">
-                  View Details
-                  <ArrowRightIcon class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
+                 <Button variant="ghost" size="sm" class="text-primary hover:text-primary hover:bg-primary/10 font-semibold">
+                   {{ viewDetailsLabel }}
+                   <ArrowRightIcon class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                 </Button>
                 <div class="flex gap-2 ml-auto">
                   <Button 
                     v-if="link && link !== '#'" 
@@ -129,22 +129,22 @@
         <div class="bg-background">
           <div class="max-w-7xl mx-auto p-6 md:p-12 lg:p-16 space-y-10 md:space-y-16">
             <div v-if="gallery && gallery.length > 0" class="space-y-4 md:space-y-8">
-              <div class="flex items-center justify-between gap-3">
-                <h3 class="text-2xl md:text-4xl font-bold text-foreground">Design Gallery</h3>
-                <div class="flex items-center gap-2 md:gap-4">
-                  <p class="text-xs md:text-base text-muted-foreground font-medium hidden sm:block">{{ gallery.length }} items</p>
-                  <Button 
-                    v-if="selectedImage !== image"
-                    @click="selectedImage = image"
-                    variant="outline"
-                    :size="isMobile ? 'sm' : 'lg'"
-                    class="gap-2"
-                  >
-                    <ImageIcon class="w-4 h-4 md:w-5 md:h-5" />
-                    <span class="hidden sm:inline">View Main</span>
-                  </Button>
-                </div>
-              </div>
+                 <div class="flex items-center justify-between gap-3">
+                   <h3 class="text-2xl md:text-4xl font-bold text-foreground">{{ designGalleryLabel }}</h3>
+                   <div class="flex items-center gap-2 md:gap-4">
+                     <p class="text-xs md:text-base text-muted-foreground font-medium hidden sm:block">{{ gallery.length }} {{ itemsLabel }}</p>
+                     <Button 
+                       v-if="selectedImage !== image"
+                       @click="selectedImage = image"
+                       variant="outline"
+                       :size="isMobile ? 'sm' : 'lg'"
+                       class="gap-2"
+                     >
+                       <ImageIcon class="w-4 h-4 md:w-5 md:h-5" />
+                       <span class="hidden sm:inline">{{ viewMainLabel }}</span>
+                     </Button>
+                   </div>
+                 </div>
               
               <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
                  <div 
@@ -181,21 +181,21 @@
 
             <div class="grid lg:grid-cols-3 gap-8 md:gap-16">
               <div class="lg:col-span-2 space-y-6 md:space-y-10">
-                <div class="bg-gradient-to-br from-accent/30 via-accent/10 to-transparent rounded-2xl md:rounded-3xl p-6 md:p-10 border border-border">
-                  <h3 class="text-xl md:text-3xl font-bold text-foreground mb-4 md:mb-6 flex items-center gap-2 md:gap-3">
-                    <div class="w-1.5 md:w-2 h-7 md:h-10 bg-gradient-to-b from-primary to-purple-500 rounded-full"></div>
-                    Project Overview
-                  </h3>
-                  <p class="text-muted-foreground leading-relaxed text-base md:text-xl">
-                    {{ longDescription || description }}
-                  </p>
-                </div>
+                 <div class="bg-gradient-to-br from-accent/30 via-accent/10 to-transparent rounded-2xl md:rounded-3xl p-6 md:p-10 border border-border">
+                   <h3 class="text-xl md:text-3xl font-bold text-foreground mb-4 md:mb-6 flex items-center gap-2 md:gap-3">
+                     <div class="w-1.5 md:w-2 h-7 md:h-10 bg-gradient-to-b from-primary to-purple-500 rounded-full"></div>
+                     {{ projectOverviewLabel }}
+                   </h3>
+                   <p class="text-muted-foreground leading-relaxed text-base md:text-xl">
+                     {{ longDescription || description }}
+                   </p>
+                 </div>
 
-                <div v-if="features" class="space-y-4 md:space-y-6">
-                  <h3 class="text-xl md:text-3xl font-bold text-foreground flex items-center gap-2 md:gap-3">
-                    <div class="w-1.5 md:w-2 h-7 md:h-10 bg-gradient-to-b from-primary to-purple-500 rounded-full"></div>
-                    Key Features
-                  </h3>
+                 <div v-if="features" class="space-y-4 md:space-y-6">
+                   <h3 class="text-xl md:text-3xl font-bold text-foreground flex items-center gap-2 md:gap-3">
+                     <div class="w-1.5 md:w-2 h-7 md:h-10 bg-gradient-to-b from-primary to-purple-500 rounded-full"></div>
+                     {{ keyFeaturesLabel }}
+                   </h3>
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-5">
                     <div 
                       v-for="feature in features" 
@@ -212,11 +212,11 @@
               </div>
 
               <div class="space-y-6 md:space-y-8">
-                <div v-if="technologies" class="bg-gradient-to-br from-primary/10 via-purple-500/10 to-transparent rounded-2xl md:rounded-3xl p-6 md:p-10 border border-border">
-                  <h3 class="text-lg md:text-2xl font-bold text-foreground mb-5 md:mb-8 flex items-center gap-2 md:gap-3">
-                    <div class="w-1.5 md:w-2 h-6 md:h-9 bg-gradient-to-b from-primary to-purple-500 rounded-full"></div>
-                    Tech Stack
-                  </h3>
+                 <div v-if="technologies" class="bg-gradient-to-br from-primary/10 via-purple-500/10 to-transparent rounded-2xl md:rounded-3xl p-6 md:p-10 border border-border">
+                   <h3 class="text-lg md:text-2xl font-bold text-foreground mb-5 md:mb-8 flex items-center gap-2 md:gap-3">
+                     <div class="w-1.5 md:w-2 h-6 md:h-9 bg-gradient-to-b from-primary to-purple-500 rounded-full"></div>
+                     {{ techStackLabel }}
+                   </h3>
                   <div class="flex flex-wrap gap-2 md:gap-3">
                     <span 
                       v-for="tech in technologies" 
@@ -228,48 +228,48 @@
                   </div>
                 </div>
 
-                <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl md:rounded-3xl p-6 md:p-10 border border-slate-700 text-white shadow-2xl">
-                  <h3 class="text-lg md:text-2xl font-bold mb-5 md:mb-8">Project Links</h3>
-                  <div class="flex flex-col gap-3 md:gap-5">
-                    <Button 
-                      v-if="link && link !== '#'" 
-                      as="a" 
-                      :href="link" 
-                      target="_blank" 
-                      class="w-full justify-between group h-12 md:h-16 text-sm md:text-lg font-semibold"
-                      size="lg"
-                    >
-                      <span class="flex items-center gap-2 md:gap-3">
-                        <ExternalLinkIcon class="w-4 h-4 md:w-6 md:h-6" />
-                        <span class="truncate">View Live Project</span>
-                      </span>
-                      <ArrowRightIcon class="w-4 h-4 md:w-6 md:h-6 group-hover:translate-x-2 transition-transform flex-shrink-0" />
-                    </Button>
-                    <Button 
-                      v-if="github && github !== '#'" 
-                      as="a" 
-                      :href="github" 
-                      target="_blank" 
-                      variant="outline"
-                      class="w-full justify-between group h-12 md:h-16 text-sm md:text-lg font-semibold bg-white/10 hover:bg-white/20 border-white/20 hover:border-white/40"
-                      size="lg"
-                    >
-                      <span class="flex items-center gap-2 md:gap-3">
-                        <GithubIcon class="w-4 h-4 md:w-6 md:h-6" />
-                        <span class="truncate">Source Code</span>
-                      </span>
-                      <ArrowRightIcon class="w-4 h-4 md:w-6 md:h-6 group-hover:translate-x-2 transition-transform flex-shrink-0" />
-                    </Button>
-                  </div>
-                </div>
+                 <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl md:rounded-3xl p-6 md:p-10 border border-slate-700 text-white shadow-2xl">
+                   <h3 class="text-lg md:text-2xl font-bold mb-5 md:mb-8">{{ projectLinksLabel }}</h3>
+                   <div class="flex flex-col gap-3 md:gap-5">
+                     <Button 
+                       v-if="link && link !== '#'" 
+                       as="a" 
+                       :href="link" 
+                       target="_blank" 
+                       class="w-full justify-between group h-12 md:h-16 text-sm md:text-lg font-semibold"
+                       size="lg"
+                     >
+                       <span class="flex items-center gap-2 md:gap-3">
+                         <ExternalLinkIcon class="w-4 h-4 md:w-6 md:h-6" />
+                         <span class="truncate">{{ viewLiveProjectLabel }}</span>
+                       </span>
+                       <ArrowRightIcon class="w-4 h-4 md:w-6 md:h-6 group-hover:translate-x-2 transition-transform flex-shrink-0" />
+                     </Button>
+                     <Button 
+                       v-if="github && github !== '#'" 
+                       as="a" 
+                       :href="github" 
+                       target="_blank" 
+                       variant="outline"
+                       class="w-full justify-between group h-12 md:h-16 text-sm md:text-lg font-semibold bg-white/10 hover:bg-white/20 border-white/20 hover:border-white/40"
+                       size="lg"
+                     >
+                       <span class="flex items-center gap-2 md:gap-3">
+                         <GithubIcon class="w-4 h-4 md:w-6 md:h-6" />
+                         <span class="truncate">{{ sourceCodeLabel }}</span>
+                       </span>
+                       <ArrowRightIcon class="w-4 h-4 md:w-6 md:h-6 group-hover:translate-x-2 transition-transform flex-shrink-0" />
+                     </Button>
+                   </div>
+                 </div>
 
-                <div v-if="client" class="p-5 md:p-8 rounded-xl md:rounded-2xl bg-accent/30 border border-border">
-                  <p class="text-xs md:text-sm uppercase tracking-wider text-muted-foreground font-bold mb-2 md:mb-3">Client</p>
-                  <p class="text-base md:text-xl font-bold text-foreground">{{ client }}</p>
-                  <Separator class="my-4 md:my-5" />
-                  <p class="text-xs md:text-sm uppercase tracking-wider text-muted-foreground font-bold mb-2 md:mb-3">Timeline</p>
-                  <p class="text-base md:text-xl font-bold text-foreground">{{ year }}</p>
-                </div>
+                 <div v-if="client" class="p-5 md:p-8 rounded-xl md:rounded-2xl bg-accent/30 border border-border">
+                   <p class="text-xs md:text-sm uppercase tracking-wider text-muted-foreground font-bold mb-2 md:mb-3">{{ clientLabel }}</p>
+                   <p class="text-base md:text-xl font-bold text-foreground">{{ client }}</p>
+                   <Separator class="my-4 md:my-5" />
+                   <p class="text-xs md:text-sm uppercase tracking-wider text-muted-foreground font-bold mb-2 md:mb-3">{{ timelineLabel }}</p>
+                   <p class="text-base md:text-xl font-bold text-foreground">{{ year }}</p>
+                 </div>
               </div>
             </div>
           </div>
@@ -280,12 +280,15 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogTrigger, DialogScrollContent } from '@/components/ui/dialog'
 import { Separator } from '@/components/ui/separator'
 import { EyeIcon, ExternalLinkIcon, GithubIcon, CheckIcon, ArrowRightIcon, ImageIcon } from 'lucide-vue-next'
 import { useLazyLoad } from '@/composables/useLazyLoad'
+import { useLanguage } from '@/composables/useLanguage'
+
+const { t } = useLanguage()
 
 const props = defineProps({
   title: String,
@@ -301,6 +304,19 @@ const props = defineProps({
   client: String,
   gallery: Array
 })
+
+const viewDetailsLabel = computed(() => t('portfolio.viewDetails') || 'View Details')
+const projectOverviewLabel = computed(() => t('portfolio.projectOverview') || 'Project Overview')
+const keyFeaturesLabel = computed(() => t('portfolio.keyFeatures') || 'Key Features')
+const designGalleryLabel = computed(() => t('portfolio.designGallery') || 'Design Gallery')
+const itemsLabel = computed(() => t('portfolio.items') || 'items')
+const viewMainLabel = computed(() => t('portfolio.viewMain') || 'View Main')
+const techStackLabel = computed(() => t('portfolio.techStack') || 'Tech Stack')
+const projectLinksLabel = computed(() => t('portfolio.projectLinks') || 'Project Links')
+const viewLiveProjectLabel = computed(() => t('portfolio.viewLiveProject') || 'View Live Project')
+const sourceCodeLabel = computed(() => t('portfolio.sourceCode') || 'Source Code')
+const clientLabel = computed(() => t('portfolio.clientLabel') || 'Client')
+const timelineLabel = computed(() => t('portfolio.timeline') || 'Timeline')
 
 const isOpen = ref(false)
 const selectedImage = ref(props.image)

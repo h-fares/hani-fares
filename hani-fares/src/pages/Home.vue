@@ -24,30 +24,27 @@
       <!-- Main Content -->
       <div class="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-6">
         <div class="space-y-6 max-w-4xl">
-          <!-- Animated Introduction -->
-          <div class="animate-fade-in-up">
-            <span class="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20 mb-4">
-              Welcome to my digital world
-            </span>
-          </div>
+           <!-- Animated Introduction -->
+           <div class="animate-fade-in-up">
+             <span class="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20 mb-4">
+               {{ t('home.welcome') }}
+             </span>
+           </div>
           
-          <!-- Main Heading with Gradient Text -->
-          <h1 class="text-5xl md:text-7xl font-bold tracking-tight animate-fade-in-up delay-200">
-            Hi, I'm 
-            <span class="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent animate-gradient-shift">
-              Hani Fares
-            </span>
-          </h1>
+           <!-- Main Heading with Gradient Text -->
+           <h1 class="text-5xl md:text-7xl font-bold tracking-tight animate-fade-in-up delay-200">
+             {{ t('home.name') }}
+             <span class="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent animate-gradient-shift">
+               Hani Fares
+             </span>
+           </h1>
           
-          <!-- Subtitle with Typing Effect -->
-          <div class="animate-fade-in-up delay-400">
-            <p class="text-xl md:text-2xl max-w-3xl text-white/90 leading-relaxed">
-              Senior Software Engineer & Digital Solutions Architect specializing in 
-              <span class="text-primary font-semibold">Laravel</span>, 
-              <span class="text-secondary font-semibold">Vue.js</span>, and 
-              <span class="text-accent font-semibold">scalable architecture</span>
-            </p>
-          </div>
+           <!-- Subtitle with Typing Effect -->
+           <div class="animate-fade-in-up delay-400">
+             <p class="text-xl md:text-2xl max-w-3xl text-white/90 leading-relaxed">
+               {{ t('home.subtitle') }}
+             </p>
+           </div>
           
           <!-- Enhanced CTA Buttons -->
           <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-600">
@@ -56,20 +53,20 @@
                   as="RouterLink"
                   to="/contact"
                   size="lg"
-                  class="group bg-gradient-to-r from-primary to-secondary hover:from-primary/80 hover:to-secondary/80 transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-primary/25"
-              >
-                Let's Work Together
-                <ArrowRightIcon class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"/>
+                   class="group bg-gradient-to-r from-primary to-secondary hover:from-primary/80 hover:to-secondary/80 transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-primary/25"
+               >
+                 {{ t('home.ctaWorkTogether') }}
+                 <ArrowRightIcon class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"/>
               </Button>
             </RouterLink>
             <RouterLink to="/portfolio">
               <Button
                   as="RouterLink"
-                  variant="outline"
-                  size="lg"
-                  class="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm transform hover:scale-105 transition-all duration-300"
-              >
-                View My Work
+                   variant="outline"
+                   size="lg"
+                   class="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm transform hover:scale-105 transition-all duration-300"
+               >
+                 {{ t('home.ctaViewWork') }}
               </Button>
             </RouterLink>
           </div>
@@ -87,47 +84,36 @@
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <!-- Text Content -->
         <div class="space-y-6">
-          <div class="space-y-3">
-            <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
-              About Me
-            </h2>
-            <p class="text-xl text-primary font-medium">
-              Full-Stack Developer | Digital Solutions Expert | Mentor
-            </p>
+           <div class="space-y-3">
+             <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+               {{ t('home.aboutMe') }}
+             </h2>
+             <p class="text-xl text-primary font-medium">
+               {{ t('home.profession') }}
+             </p>
             <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
           </div>
           
-          <div class="space-y-4 text-muted-foreground leading-relaxed">
-            <p>
-              I'm a software engineer based in <span class="text-foreground font-medium">Germany</span>, specializing in full-stack development with 
-              <span class="text-primary font-medium">Laravel</span>, 
-              <span class="text-secondary font-medium">Vue.js</span>, 
-              <span class="text-accent font-medium">Docker</span>, and 
-              <span class="text-primary font-medium">Kubernetes</span>. 
-              I thrive on architecting scalable, maintainable systems that solve real business challenges.
-            </p>
-            <p>
-              I empower small businesses to refresh their brand identity through professional website design, menu creation, and other digital assets.
-            </p>
-            <p>
-              As a <span class="text-foreground font-medium">mentor</span>, I guide aspiring developers in building a strong foundation for their careers by helping them craft compelling CVs and professional LinkedIn profiles.
-            </p>
-          </div>
+           <div class="space-y-4 text-muted-foreground leading-relaxed">
+             <p>
+               {{ t('home.aboutDescription') }}
+             </p>
+           </div>
           
           <!-- Key Stats -->
           <div class="grid grid-cols-3 gap-4 pt-6">
-            <div class="text-center p-4 bg-primary/5 rounded-xl border border-primary/10">
-              <div class="text-2xl font-bold text-primary">5+</div>
-              <div class="text-sm text-muted-foreground">Years Experience</div>
-            </div>
-            <div class="text-center p-4 bg-secondary/5 rounded-xl border border-secondary/10">
-              <div class="text-2xl font-bold text-secondary">50+</div>
-              <div class="text-sm text-muted-foreground">Projects Completed</div>
-            </div>
-            <div class="text-center p-4 bg-accent/5 rounded-xl border border-accent/10">
-              <div class="text-2xl font-bold text-accent">30+</div>
-              <div class="text-sm text-muted-foreground">Happy Clients</div>
-            </div>
+             <div class="text-center p-4 bg-primary/5 rounded-xl border border-primary/10">
+               <div class="text-2xl font-bold text-primary">5+</div>
+               <div class="text-sm text-muted-foreground">{{ t('footer.years') }}</div>
+             </div>
+             <div class="text-center p-4 bg-secondary/5 rounded-xl border border-secondary/10">
+               <div class="text-2xl font-bold text-secondary">50+</div>
+               <div class="text-sm text-muted-foreground">{{ t('portfolio.projectsDelivered') }}</div>
+             </div>
+             <div class="text-center p-4 bg-accent/5 rounded-xl border border-accent/10">
+               <div class="text-2xl font-bold text-accent">30+</div>
+               <div class="text-sm text-muted-foreground">{{ t('portfolio.happyClients') }}</div>
+             </div>
           </div>
         </div>
         
@@ -166,14 +152,14 @@
 
     <!-- What I Offer (Services) -->
     <div class="max-w-6xl mx-auto animate-fade-in-up delay-500">
-      <div class="text-center space-y-6 mb-16">
-        <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent">
-          What I Offer
-        </h2>
-        <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
-          Comprehensive digital solutions designed to elevate your business and personal brand
-        </p>
-      </div>
+       <div class="text-center space-y-6 mb-16">
+         <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent">
+           {{ t('home.expertiseTitle') }}
+         </h2>
+         <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+           {{ t('home.aboutDescription') }}
+         </p>
+       </div>
       
       <div class="grid md:grid-cols-3 gap-8">
         <Card class="group p-8 hover:shadow-2xl transition-all duration-500 hover:scale-105 border-2 hover:border-primary/20 relative overflow-hidden">
@@ -182,10 +168,10 @@
             <div class="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <CodeIcon class="w-6 h-6 text-white" />
             </div>
-            <h3 class="text-2xl font-bold text-foreground">High performed Software</h3>
-            <p class="text-muted-foreground leading-relaxed">
-              I build robust web and digital platforms using Laravel, Vue.js, Docker, and Kubernetes. My expertise covers the entire process, from architecture and development to hosting and SEO optimization.
-            </p>
+             <h3 class="text-2xl font-bold text-foreground">{{ t('services.webDevelopment') }}</h3>
+             <p class="text-muted-foreground leading-relaxed">
+               {{ t('services.webServices')[0].description }}
+             </p>
             <RouterLink to="/services">
               <Button variant="ghost" size="sm" class="group-hover:text-primary transition-colors">
                 Learn More →
@@ -200,10 +186,10 @@
             <div class="w-12 h-12 bg-gradient-to-br from-secondary to-accent rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <PaletteIcon class="w-6 h-6 text-white" />
             </div>
-            <h3 class="text-2xl font-bold text-foreground">Design & Branding</h3>
-            <p class="text-muted-foreground leading-relaxed">
-              From restaurant menus and business cards to social media templates — modern design that captures your brand essence.
-            </p>
+             <h3 class="text-2xl font-bold text-foreground">{{ t('services.design') }}</h3>
+             <p class="text-muted-foreground leading-relaxed">
+               {{ t('services.designServices')[0].description }}
+             </p>
             <RouterLink to="/portfolio">
               <Button variant="ghost" size="sm" class="group-hover:text-secondary transition-colors">
                 View Portfolio →
@@ -218,10 +204,10 @@
             <div class="w-12 h-12 bg-gradient-to-br from-accent to-primary rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <UserIcon class="w-6 h-6 text-white" />
             </div>
-            <h3 class="text-2xl font-bold text-foreground">Career & Tech Coaching</h3>
-            <p class="text-muted-foreground leading-relaxed">
-              Professional CV writing, LinkedIn optimization, and expert Laravel & Vue.js mentoring to advance your career.
-            </p>
+             <h3 class="text-2xl font-bold text-foreground">{{ t('services.career') }}</h3>
+             <p class="text-muted-foreground leading-relaxed">
+               {{ t('services.careerServices')[0].description }}
+             </p>
             <RouterLink to="/contact">
               <Button variant="ghost" size="sm" class="group-hover:text-accent transition-colors">
                 Get Started →
@@ -234,14 +220,14 @@
 
     <!-- Enhanced Technologies Section -->
     <div class="max-w-6xl mx-auto animate-fade-in-up delay-600 ">
-      <div class="text-center space-y-6 mb-12">
-        <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
-          Tech Stack
-        </h2>
-        <p class="text-xl text-muted-foreground">
-          Cutting-edge technologies I use to build exceptional solutions
-        </p>
-      </div>
+       <div class="text-center space-y-6 mb-12">
+         <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+           {{ t('home.technologiesTitle') }}
+         </h2>
+         <p class="text-xl text-muted-foreground">
+           {{ t('home.aboutDescription') }}
+         </p>
+       </div>
       
       <div class="grid gap-6 grid-cols-2 md:grid-cols-4 lg:grid-cols-7 ">
         <TechBadge name="Laravel" color="primary" />
@@ -254,28 +240,28 @@
       </div>
     </div>
 
-    <!-- Enhanced CTA -->
-    <div class="max-w-4xl mx-auto text-center space-y-8 animate-fade-in-up delay-700 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 rounded-3xl p-12">
-      <div class="space-y-4">
-        <h2 class="text-3xl md:text-4xl font-bold">Ready to Build Something Amazing?</h2>
-        <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
-          Whether you need a full-stack application, stunning design, or career guidance — let's turn your vision into reality.
-        </p>
-      </div>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <RouterLink to="/contact" >
-          <Button as="RouterLink" size="lg" class="group bg-gradient-to-r from-primary to-secondary hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
-            Start Your Project
-            <RocketIcon class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-          </Button>
-        </RouterLink>
-        <RouterLink to="/services">
-          <Button as="RouterLink" variant="outline" size="lg" class="transform hover:scale-105 transition-all duration-300">
-            Explore Services
-          </Button>
-        </RouterLink>
-      </div>
-    </div>
+     <!-- Enhanced CTA -->
+     <div class="max-w-4xl mx-auto text-center space-y-8 animate-fade-in-up delay-700 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 rounded-3xl p-12">
+       <div class="space-y-4">
+         <h2 class="text-3xl md:text-4xl font-bold">{{ t('home.ctaWorkTogether') }}?</h2>
+         <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+           {{ t('services.ctaReadyDescription') }}
+         </p>
+       </div>
+       <div class="flex flex-col sm:flex-row gap-4 justify-center">
+         <RouterLink to="/contact" >
+           <Button as="RouterLink" size="lg" class="group bg-gradient-to-r from-primary to-secondary hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+             {{ t('services.ctaGetStarted') }}
+             <RocketIcon class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+           </Button>
+         </RouterLink>
+         <RouterLink to="/services">
+           <Button as="RouterLink" variant="outline" size="lg" class="transform hover:scale-105 transition-all duration-300">
+             {{ t('home.expertiseTitle') }}
+           </Button>
+         </RouterLink>
+       </div>
+     </div>
 
   </section>
 </template>
@@ -297,6 +283,13 @@ import avatar from "@/assets/images/hani-without-bg.webp";
 import pattern from "@/assets/images/iconpattern.png";
 import grain from "@/assets/images/grain.webp";
 import ProfileCard from "@/components/ProfileCard.vue";
+import { useLanguage } from '@/composables/useLanguage'
+
+const { t } = useLanguage()
+
+const handleContactClick = () => {
+  // Handle contact click if needed
+}
 </script>
 
 <style scoped>

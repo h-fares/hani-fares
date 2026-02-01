@@ -27,10 +27,10 @@
           <Separator :class="separatorColorClass" />
         </div>
 
-        <!-- Services List -->
-        <div class="space-y-4">
-          <h3 class="text-lg font-semibold text-foreground">What's Included:</h3>
-          <div class="grid gap-3">
+         <!-- Services List -->
+         <div class="space-y-4">
+           <h3 class="text-lg font-semibold text-foreground">{{ t('services.whatsIncluded') }}</h3>
+           <div class="grid gap-3">
             <div 
               v-for="(service, index) in services" 
               :key="index"
@@ -46,10 +46,10 @@
           </div>
         </div>
 
-        <!-- Features -->
-        <div class="space-y-3" v-if="features">
-          <h3 class="text-lg font-semibold text-foreground">Key Features:</h3>
-          <div class="flex flex-wrap gap-2">
+         <!-- Features -->
+         <div class="space-y-3" v-if="features">
+           <h3 class="text-lg font-semibold text-foreground">{{ t('services.keyFeatures') }}</h3>
+           <div class="flex flex-wrap gap-2">
             <span 
               v-for="feature in features" 
               :key="feature"
@@ -69,19 +69,19 @@
           </div>
         </div>
 
-        <!-- CTA Button -->
-        <div class="pt-2">
-          <RouterLink to="/contact">
-            <Button
-                as="RouterLink"
-                :variant="color === 'primary' ? 'default' : 'outline'"
-                class="group/btn hover:scale-105 transition-transform duration-200"
-            >
-              Get Started
-              <ArrowRightIcon class="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
-            </Button>
-          </RouterLink>
-        </div>
+         <!-- CTA Button -->
+         <div class="pt-2">
+           <RouterLink to="/contact">
+             <Button
+                 as="RouterLink"
+                 :variant="color === 'primary' ? 'default' : 'outline'"
+                 class="group/btn hover:scale-105 transition-transform duration-200"
+             >
+               {{ t('services.getStarted') }}
+               <ArrowRightIcon class="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
+             </Button>
+           </RouterLink>
+         </div>
       </div>
     </div>
   </Card>
@@ -93,6 +93,9 @@ import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { ArrowRightIcon } from 'lucide-vue-next'
+import { useLanguage } from '@/composables/useLanguage'
+
+const { t } = useLanguage()
 
 const props = defineProps({
   title: String,

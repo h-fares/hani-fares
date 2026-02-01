@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen flex flex-col bg-background text-foreground font-sans">
+  <div class="min-h-screen flex flex-col bg-background text-foreground font-sans transition-opacity duration-300" :key="getLanguage.value">
     <!-- Skip to main content link for accessibility -->
     <a 
       href="#main-content" 
@@ -19,8 +19,24 @@
 </template>
 
 <script setup>
+import { watch, onMounted } from 'vue'
 import Header from '@/components/Layout/Header.vue'
 import Footer from '@/components/Layout/Footer.vue'
+import { useLanguage } from '@/composables/useLanguage'
+
+const { getLanguage } = useLanguage()
+
+// Watch for language changes and update HTML lang attribute
+watch(getLanguage, (newLang) => {
+  document.documentElement.lang = newLang
+  document.documentElement.setAttribute('lang', newLang)
+}, { immediate: true })
+
+// Set lang attribute on mount
+onMounted(() => {
+  document.documentElement.lang = getLanguage.value
+  document.documentElement.setAttribute('lang', getLanguage.value)
+})
 </script>
 
 <style>

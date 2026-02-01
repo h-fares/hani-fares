@@ -25,31 +25,30 @@
                 </h2>
               </div>
               <p class="text-muted-foreground leading-relaxed">
-                Building efficient, modern applications with Laravel, Vue.js & cutting-edge technologies. 
-                <span class="text-foreground font-medium">Clean code. Real results.</span>
+                {{ t('footer.description') }}
               </p>
             </div>
             
             <!-- Quick Stats -->
             <div class="flex gap-4 text-sm">
               <div class="text-center">
-                <div class="font-bold text-primary">5+</div>
-                <div class="text-muted-foreground">Years</div>
+                 <div class="font-bold text-primary">5+</div>
+                 <div class="text-muted-foreground">{{ t('footer.years') }}</div>
               </div>
               <div class="text-center">
-                <div class="font-bold text-secondary">50+</div>
-                <div class="text-muted-foreground">Projects</div>
+                 <div class="font-bold text-secondary">50+</div>
+                 <div class="text-muted-foreground">{{ t('footer.projects') }}</div>
               </div>
               <div class="text-center">
-                <div class="font-bold text-accent">30+</div>
-                <div class="text-muted-foreground">Clients</div>
+                 <div class="font-bold text-accent">30+</div>
+                 <div class="text-muted-foreground">{{ t('footer.clients') }}</div>
               </div>
             </div>
           </div>
 
           <!-- Quick Navigation -->
           <div class="space-y-6">
-            <h3 class="text-lg font-semibold text-foreground">Quick Links</h3>
+            <h3 class="text-lg font-semibold text-foreground">{{ t('footer.quickLinks') }}</h3>
             <ul class="space-y-3">
               <li>
                 <RouterLink 
@@ -57,7 +56,7 @@
                   class="text-muted-foreground hover:text-primary transition-colors duration-200 flex items-center gap-2 group"
                 >
                   <ArrowRightIcon class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-                  Home
+                  {{ t('nav.home') }}
                 </RouterLink>
               </li>
               <li>
@@ -66,7 +65,7 @@
                   class="text-muted-foreground hover:text-primary transition-colors duration-200 flex items-center gap-2 group"
                 >
                   <ArrowRightIcon class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-                  Services
+                  {{ t('nav.services') }}
                 </RouterLink>
               </li>
               <li>
@@ -75,7 +74,7 @@
                   class="text-muted-foreground hover:text-primary transition-colors duration-200 flex items-center gap-2 group"
                 >
                   <ArrowRightIcon class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-                  Portfolio
+                  {{ t('nav.portfolio') }}
                 </RouterLink>
               </li>
               <li>
@@ -84,7 +83,7 @@
                   class="text-muted-foreground hover:text-primary transition-colors duration-200 flex items-center gap-2 group"
                 >
                   <ArrowRightIcon class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-                  Contact
+                  {{ t('nav.contact') }}
                 </RouterLink>
               </li>
             </ul>
@@ -92,20 +91,20 @@
 
           <!-- Contact & Social -->
           <div class="space-y-6">
-            <h3 class="text-lg font-semibold text-foreground">Let's Connect</h3>
+            <h3 class="text-lg font-semibold text-foreground">{{ t('footer.letsConnect') }}</h3>
             <div class="space-y-4">
               <p class="text-muted-foreground">
-                Ready to bring your digital vision to life? Let's start a conversation.
+                {{ t('footer.readyForVision') }}
               </p>
               
               <!-- CTA Button -->
               <RouterLink to="/contact">
-                <Button
+               <Button
                     as="RouterLink"
 
                     class="mb-4 bg-gradient-to-r from-primary cursor-pointer to-secondary hover:from-primary/80 hover:to-secondary/80 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-primary/25"
                 >
-                  Get In Touch
+                  {{ t('footer.getInTouch') }}
                   <ArrowRightIcon class="w-4 h-4 ml-2" />
                 </Button>
               </RouterLink>
@@ -154,22 +153,22 @@
         <div class="h-px bg-gradient-to-r from-transparent via-border to-transparent mb-8"></div>
 
         <!-- Bottom Section -->
-        <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-          <p class="text-muted-foreground text-center md:text-left">
-            © {{ new Date().getFullYear() }} Hani Fares. Crafted with 
-            <span class="text-red-500 animate-pulse">♥</span> 
-            in Germany. All rights reserved.
-          </p>
+         <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+           <p class="text-muted-foreground text-center md:text-left">
+             © {{ new Date().getFullYear() }} Hani Fares. {{ t('footer.copyright') }}
+             <span class="text-red-500 animate-pulse">♥</span> 
+             {{ t('footer.craftedInGermany') }}
+           </p>
           
-          <!-- Tech Stack Icons -->
-          <div class="flex gap-2 text-muted-foreground">
-            <span class="text-xs">Built with:</span>
-            <div class="flex gap-1">
-              <span class="px-2 py-1 bg-primary/10 text-primary rounded text-xs font-medium">Vue</span>
-              <span class="px-2 py-1 bg-secondary/10 text-secondary rounded text-xs font-medium">Laravel</span>
-              <span class="px-2 py-1 bg-accent/10 text-accent rounded text-xs font-medium">Tailwind</span>
-            </div>
-          </div>
+           <!-- Tech Stack Icons -->
+           <div class="flex gap-2 text-muted-foreground">
+             <span class="text-xs">{{ t('footer.builtWith') }}</span>
+             <div class="flex gap-1">
+               <span class="px-2 py-1 bg-primary/10 text-primary rounded text-xs font-medium">Vue</span>
+               <span class="px-2 py-1 bg-secondary/10 text-secondary rounded text-xs font-medium">Laravel</span>
+               <span class="px-2 py-1 bg-accent/10 text-accent rounded text-xs font-medium">Tailwind</span>
+             </div>
+           </div>
         </div>
       </div>
     </div>
@@ -180,4 +179,7 @@
 import { RouterLink } from 'vue-router'
 import { Button } from '@/components/ui/button'
 import { Github, Linkedin, Mail, ArrowRightIcon } from 'lucide-vue-next'
+import { useLanguage } from '@/composables/useLanguage'
+
+const { t } = useLanguage()
 </script>

@@ -9,14 +9,14 @@
         <div class="inline-block">
           <h1 class="text-6xl md:text-7xl font-black tracking-tight mb-4">
             <span class="text-5xl md:text-6xl font-bold bg-gradient-to-r from-accent via-primary to-secondary bg-clip-text text-transparent">
-              Featured Work
+              {{ t('portfolio.title') }}
             </span>
           </h1>
           <div class="h-1.5 bg-gradient-to-r from-accent via-primary to-secondary rounded-full"></div>
         </div>
         
         <p class="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto leading-relaxed font-light">
-          Transforming ideas into exceptional digital experiences. Each project represents a unique challenge solved with precision and creativity.
+          {{ t('portfolio.subtitle') }}
         </p>
       </div>
 
@@ -27,7 +27,7 @@
           class="rounded-full px-6 py-5 font-medium transition-all hover:scale-105"
           size="lg"
         >
-          All Work
+          {{ t('portfolio.allWork') }}
         </Button>
         <Button 
           @click="activeFilter = 'web'" 
@@ -35,7 +35,7 @@
           class="rounded-full px-6 py-5 font-medium transition-all hover:scale-105"
           size="lg"
         >
-          Web Development
+          {{ t('portfolio.webDevelopment') }}
         </Button>
         <Button 
           @click="activeFilter = 'design'" 
@@ -43,7 +43,7 @@
           class="rounded-full px-6 py-5 font-medium transition-all hover:scale-105"
           size="lg"
         >
-          Design & Branding
+          {{ t('portfolio.designBranding') }}
         </Button>
       </div>
 
@@ -59,37 +59,37 @@
         </TransitionGroup>
       </div>
 
-      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-12 text-white animate-fade-in-up delay-600">
+       <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-12 text-white animate-fade-in-up delay-600">
         <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
         <div class="relative z-10">
           <div class="text-center mb-12">
-            <h2 class="text-4xl font-bold mb-3">Impact by Numbers</h2>
-            <p class="text-slate-300">Delivering measurable results across all projects</p>
+            <h2 class="text-4xl font-bold mb-3">{{ t('portfolio.impactByNumbers') }}</h2>
+            <p class="text-slate-300">{{ t('portfolio.impactDescription') }}</p>
           </div>
           <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div class="text-center space-y-2 group">
               <div class="text-5xl font-black bg-gradient-to-br from-blue-400 to-blue-600 bg-clip-text text-transparent transition-transform group-hover:scale-110">
                 {{ stats.projectsCompleted }}+
               </div>
-              <div class="text-sm text-slate-400 font-medium uppercase tracking-wider">Projects Delivered</div>
+              <div class="text-sm text-slate-400 font-medium uppercase tracking-wider">{{ t('portfolio.projectsDelivered') }}</div>
             </div>
             <div class="text-center space-y-2 group">
               <div class="text-5xl font-black bg-gradient-to-br from-green-400 to-green-600 bg-clip-text text-transparent transition-transform group-hover:scale-110">
                 {{ stats.clientsSatisfied }}+
               </div>
-              <div class="text-sm text-slate-400 font-medium uppercase tracking-wider">Happy Clients</div>
+              <div class="text-sm text-slate-400 font-medium uppercase tracking-wider">{{ t('portfolio.happyClients') }}</div>
             </div>
             <div class="text-center space-y-2 group">
               <div class="text-5xl font-black bg-gradient-to-br from-purple-400 to-purple-600 bg-clip-text text-transparent transition-transform group-hover:scale-110">
                 {{ stats.technologiesUsed }}+
               </div>
-              <div class="text-sm text-slate-400 font-medium uppercase tracking-wider">Technologies</div>
+              <div class="text-sm text-slate-400 font-medium uppercase tracking-wider">{{ t('portfolio.technologies') }}</div>
             </div>
             <div class="text-center space-y-2 group">
               <div class="text-5xl font-black bg-gradient-to-br from-pink-400 to-pink-600 bg-clip-text text-transparent transition-transform group-hover:scale-110">
                 {{ stats.yearsExperience }}+
               </div>
-              <div class="text-sm text-slate-400 font-medium uppercase tracking-wider">Years Experience</div>
+              <div class="text-sm text-slate-400 font-medium uppercase tracking-wider">{{ t('portfolio.yearsExperience') }}</div>
             </div>
           </div>
         </div>
@@ -102,6 +102,7 @@
 import { ref, computed } from 'vue'
 import { Button } from '@/components/ui/button'
 import PortfolioCard from '@/components/PortfolioCard.vue'
+import { useLanguage } from '@/composables/useLanguage'
 import syrresImage from '../assets/images/syr-res.png'
 import hausinternationalImage from '../assets/images/hausinternational.jpg'
 import ammarumariImage from '../assets/images/ammar-umari.webp'
@@ -110,6 +111,7 @@ import menuImage from '../assets/images/menu.jpg'
 import eventImage from '../assets/images/event-management.jpg'
 import careerImage from '../assets/images/career-support.jpg'
 
+const { t } = useLanguage()
 const activeFilter = ref('all')
 
 const stats = {
@@ -122,9 +124,9 @@ const stats = {
 const projects = [
   {
     id: 1,
-    title: 'Syrian Researchers Website',
-    description: 'A comprehensive platform for Syrian researchers featuring advanced search capabilities and user management.',
-    longDescription: 'Built a modern, responsive website for the Syrian Researchers community with Vue.js and Laravel backend. Features include researcher profiles, publication management, and collaborative tools.',
+    title: t('portfolio.project1_title'),
+    description: t('portfolio.project1_description'),
+    longDescription: t('portfolio.project1_longDescription'),
     image: syrresImage,
     category: 'web',
     technologies: ['Laravel', 'Vue.js', 'MySQL', 'Docker', 'Tailwind CSS'],
@@ -132,13 +134,13 @@ const projects = [
     link: 'https://syrian-researchers.com/',
     github: '#',
     year: '2024',
-    client: 'Syrian Researchers Community'
+    client: t('portfolio.project1_client')
   },
   {
     id: 2,
-    title: 'Zahnarztpraxis Ammar Umari Webpage',
-    description: 'Professional website showcasing accommodation services with calendar integration.',
-    longDescription: 'Developed a website for a dental clinic Ammar Umari with integrated doctolib system, property management.',
+    title: t('portfolio.project2_title'),
+    description: t('portfolio.project2_description'),
+    longDescription: t('portfolio.project2_longDescription'),
     image: ammarumariImage,
     category: 'web',
     technologies: ['HTML5', 'CSS3', 'JavaScript', 'PHP'],
@@ -146,13 +148,13 @@ const projects = [
     link: 'https://zahnarztpraxis-umari.de/',
     github: '#',
     year: '2025',
-    client: 'Ammar Umari Dental Clinic'
+    client: t('portfolio.project2_client')
   },
   {
     id: 3,
-    title: 'Hausinternational Webpage',
-    description: 'Professional website showcasing accommodation services with calendar integration.',
-    longDescription: 'Developed a website for Hausinternational Kempten with integrated calendar system, property management, and multilingual content support.',
+    title: t('portfolio.project3_title'),
+    description: t('portfolio.project3_description'),
+    longDescription: t('portfolio.project3_longDescription'),
     image: hausinternationalImage,
     category: 'web',
     technologies: ['HTML5', 'CSS3', 'JavaScript', 'PHP'],
@@ -160,51 +162,37 @@ const projects = [
     link: 'https://hausinternationa-1e2vvth38n.live-website.com/',
     github: '#',
     year: '2023',
-    client: 'Hausinternational Kempten'
+    client: t('portfolio.project3_client')
   },
   {
     id: 4,
-    title: 'Rebranding & Menu Design',
-    description: 'Complete brand identity and menu design system for multiple restaurant chains.',
-    longDescription: 'Created comprehensive menu designs and brand identity packages for various restaurants, including digital and print versions with QR code integration. The project encompassed menu layouts, business cards, promotional materials, and complete visual identity systems.',
+    title: t('portfolio.project4_title'),
+    description: t('portfolio.project4_description'),
+    longDescription: t('portfolio.project4_longDescription'),
     image: menusImage,
     category: 'design',
     technologies: ['Adobe Illustrator', 'Photoshop', 'InDesign'],
     features: ['Brand Identity', 'Print Design', 'Digital Menus', 'QR Code Integration'],
     link: '#',
     year: '2023-2024',
-    client: 'Multiple Restaurant Chains',
+    client: t('portfolio.project4_client'),
     gallery: [
       { src: menusImage, title: 'Menu Design Collection', type: 'menu' },
       { src: menuImage, title: 'Restaurant Menu Layout', type: 'menu' }
     ]
   },
-  // {
-  //   id: 4,
-  //   title: 'Event Management Platform',
-  //   description: 'Full-featured event management system with booking, payments, and vendor coordination.',
-  //   longDescription: 'Developed a comprehensive event management platform for wedding and event coordinators with client portals, vendor management, and payment processing.',
-  //   image: eventImage,
-  //   category: 'web',
-  //   technologies: ['Laravel', 'Vue.js', 'Stripe API', 'Docker'],
-  //   features: ['Event Planning', 'Vendor Management', 'Payment Processing', 'Client Portal'],
-  //   link: '#',
-  //   github: '#',
-  //   year: '2023',
-  //   client: 'Event Coordination Agency'
-  // },
   {
     id: 5,
-    title: 'Career Enhancement Services',
-    description: 'Complete career development package including CV design, LinkedIn optimization, and interview coaching.',
-    longDescription: 'As a member in Imagine Foundation and Mentory SY Provided comprehensive career support services including modern CV designs, LinkedIn profile optimization, and personal branding strategies.',
+    title: t('portfolio.project5_title'),
+    description: t('portfolio.project5_description'),
+    longDescription: t('portfolio.project5_longDescription'),
     image: careerImage,
     category: 'design',
     technologies: ['Adobe Creative Suite', 'LinkedIn Analytics'],
     features: ['CV Design', 'LinkedIn Optimization', 'Personal Branding', 'Interview Coaching'],
     link: 'https://www.linkedin.com/in/hani-fares-072bb5a4/',
     year: '2022-2024',
-    client: 'Imagine Foundation & Mentory SY'
+    client: t('portfolio.project5_client')
   }
 ]
 

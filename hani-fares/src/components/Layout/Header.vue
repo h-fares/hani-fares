@@ -28,66 +28,100 @@
 
         <!-- Desktop Nav -->
         <ul class="hidden md:flex items-center gap-8" role="menubar">
-          <li role="none">
-            <RouterLink 
-              to="/" 
-              class="nav-link group relative px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-all duration-300"
-              :class="{ 'nav-link-active': $route.path === '/' }"
-              role="menuitem"
-              aria-current="$route.path === '/' ? 'page' : 'false'"
-            >
-              <span class="relative z-10">Home</span>
-              <div class="absolute inset-0 rounded-lg bg-gradient-to-r from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </RouterLink>
-          </li>
-          <li role="none">
-            <RouterLink 
-              to="/services" 
-              class="nav-link group relative px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-all duration-300"
-              :class="{ 'nav-link-active': $route.path === '/services' }"
-              role="menuitem"
-              aria-current="$route.path === '/services' ? 'page' : 'false'"
-            >
-              <span class="relative z-10">Services</span>
-              <div class="absolute inset-0 rounded-lg bg-gradient-to-r from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </RouterLink>
-          </li>
-          <li role="none">
-            <RouterLink 
-              to="/portfolio" 
-              class="nav-link group relative px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-all duration-300"
-              :class="{ 'nav-link-active': $route.path === '/portfolio' }"
-              role="menuitem"
-              aria-current="$route.path === '/portfolio' ? 'page' : 'false'"
-            >
-              <span class="relative z-10">Portfolio</span>
-              <div class="absolute inset-0 rounded-lg bg-gradient-to-r from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </RouterLink>
-          </li>
-          <li role="none">
-            <RouterLink 
-              to="/contact" 
-              class="group relative px-4 py-2 text-sm font-medium bg-gradient-to-r from-primary to-secondary text-white rounded-lg hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 hover:scale-105"
-              role="menuitem"
-              aria-current="$route.path === '/contact' ? 'page' : 'false'"
-            >
-              <span class="relative z-10">Contact</span>
-              <div class="absolute inset-0 rounded-lg bg-gradient-to-r from-secondary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </RouterLink>
-          </li>
-          <li role="none">
-            <Button 
-              variant="outline" 
-              size="icon" 
-              @click="toggleTheme"
-              class="hover:bg-muted/50 hover:scale-105 transition-all duration-200"
-              :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
-              role="menuitem"
-            >
-              <Moon v-if="isDark" class="w-5 h-5" />
-              <Sun v-else class="w-5 h-5" />
-            </Button>
-          </li>
+           <li role="none">
+             <RouterLink 
+               to="/" 
+               class="nav-link group relative px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-all duration-300"
+               :class="{ 'nav-link-active': $route.path === '/' }"
+               role="menuitem"
+               aria-current="$route.path === '/' ? 'page' : 'false'"
+             >
+               <span class="relative z-10">{{ t('nav.home') }}</span>
+               <div class="absolute inset-0 rounded-lg bg-gradient-to-r from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+             </RouterLink>
+           </li>
+           <li role="none">
+             <RouterLink 
+               to="/services" 
+               class="nav-link group relative px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-all duration-300"
+               :class="{ 'nav-link-active': $route.path === '/services' }"
+               role="menuitem"
+               aria-current="$route.path === '/services' ? 'page' : 'false'"
+             >
+               <span class="relative z-10">{{ t('nav.services') }}</span>
+               <div class="absolute inset-0 rounded-lg bg-gradient-to-r from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+             </RouterLink>
+           </li>
+           <li role="none">
+             <RouterLink 
+               to="/portfolio" 
+               class="nav-link group relative px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-all duration-300"
+               :class="{ 'nav-link-active': $route.path === '/portfolio' }"
+               role="menuitem"
+               aria-current="$route.path === '/portfolio' ? 'page' : 'false'"
+             >
+               <span class="relative z-10">{{ t('nav.portfolio') }}</span>
+               <div class="absolute inset-0 rounded-lg bg-gradient-to-r from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+             </RouterLink>
+           </li>
+           <li role="none">
+             <RouterLink 
+               to="/contact" 
+               class="group relative px-4 py-2 text-sm font-medium bg-gradient-to-r from-primary to-secondary text-white rounded-lg hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 hover:scale-105"
+               role="menuitem"
+               aria-current="$route.path === '/contact' ? 'page' : 'false'"
+             >
+               <span class="relative z-10">{{ t('nav.contact') }}</span>
+               <div class="absolute inset-0 rounded-lg bg-gradient-to-r from-secondary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+             </RouterLink>
+           </li>
+            <li role="none">
+              <Button 
+                @click="toggleTheme"
+                variant="ghost" 
+                size="icon" 
+                class="relative hover:scale-110 transition-all duration-300 group"
+                :aria-label="isDark ? t('nav.lightMode') : t('nav.darkMode')"
+                role="menuitem"
+              >
+                <div class="relative w-5 h-5 flex items-center justify-center">
+                  <Sun v-if="!isDark" class="w-5 h-5 text-yellow-500 group-hover:text-yellow-600 transition-colors duration-300" />
+                  <Moon v-else class="w-5 h-5 text-blue-400 group-hover:text-blue-500 transition-colors duration-300" />
+                </div>
+              </Button>
+            </li>
+            <li role="none">
+              <Popover v-model:open="isLanguageOpen">
+                <PopoverTrigger as-child>
+                  <Button 
+                    variant="outline" 
+                    size="icon" 
+                    class="hover:bg-muted/50 hover:scale-105 transition-all duration-200"
+                    :aria-label="`Current language: ${getLanguage}`"
+                    role="menuitem"
+                  >
+                    <Globe class="w-5 h-5" />
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent side="bottom" align="end" class="w-32 bg-background/95 backdrop-blur-xl" role="menu">
+                  <ul class="space-y-1 p-2">
+                    <li v-for="lang in availableLanguages" :key="lang.code" role="none">
+                      <button
+                        @click="selectLanguage(lang.code)"
+                        :class="[
+                          'w-full text-left px-3 py-2 text-sm font-medium rounded-lg hover:bg-muted/50 transition-colors duration-200',
+                          getLanguage === lang.code ? 'bg-primary/10 text-primary' : 'text-foreground'
+                        ]"
+                        role="menuitem"
+                        :aria-current="getLanguage === lang.code ? 'true' : 'false'"
+                      >
+                        {{ lang.name }}
+                      </button>
+                    </li>
+                  </ul>
+                </PopoverContent>
+              </Popover>
+            </li>
         </ul>
 
         <!-- Mobile Menu -->
@@ -105,66 +139,86 @@
           </PopoverTrigger>
           <PopoverContent side="bottom" align="end" class="w-56 mt-2 border border-border/50 bg-background/95 backdrop-blur-xl" role="menu">
             <ul class="space-y-1 p-2">
-              <li role="none">
-                <RouterLink 
-                  to="/" 
-                  class="mobile-nav-link flex items-center w-full px-3 py-2 text-sm font-medium rounded-lg hover:bg-muted/50 transition-colors duration-200"
-                  :class="{ 'bg-primary/10 text-primary': $route.path === '/' }"
-                  @click="closeMenu"
-                  role="menuitem"
-                  :aria-current="$route.path === '/' ? 'page' : 'false'"
-                >
-                  Home
-                </RouterLink>
-              </li>
-              <li role="none">
-                <RouterLink 
-                  to="/services" 
-                  class="mobile-nav-link flex items-center w-full px-3 py-2 text-sm font-medium rounded-lg hover:bg-muted/50 transition-colors duration-200"
-                  :class="{ 'bg-primary/10 text-primary': $route.path === '/services' }"
-                  @click="closeMenu"
-                  role="menuitem"
-                  :aria-current="$route.path === '/services' ? 'page' : 'false'"
-                >
-                  Services
-                </RouterLink>
-              </li>
-              <li role="none">
-                <RouterLink 
-                  to="/portfolio" 
-                  class="mobile-nav-link flex items-center w-full px-3 py-2 text-sm font-medium rounded-lg hover:bg-muted/50 transition-colors duration-200"
-                  :class="{ 'bg-primary/10 text-primary': $route.path === '/portfolio' }"
-                  @click="closeMenu"
-                  role="menuitem"
-                  :aria-current="$route.path === '/portfolio' ? 'page' : 'false'"
-                >
-                  Portfolio
-                </RouterLink>
-              </li>
-              <li class="pt-2 border-t border-border/50" role="none">
-                <RouterLink 
-                  to="/contact" 
-                  class="flex items-center w-full px-3 py-2 text-sm font-medium bg-gradient-to-r from-primary to-secondary text-white rounded-lg hover:shadow-md transition-all duration-200"
-                  @click="closeMenu"
-                  role="menuitem"
-                  :aria-current="$route.path === '/contact' ? 'page' : 'false'"
-                >
-                  Contact
-                </RouterLink>
-              </li>
-              <li class="pt-2 border-t border-border/50" role="none">
-                <Button 
-                  variant="outline" 
-                  class="w-full justify-start"
-                  @click="toggleTheme"
-                  :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
-                  role="menuitem"
-                >
-                  <Moon v-if="isDark" class="w-5 h-5 mr-2" />
-                  <Sun v-else class="w-5 h-5 mr-2" />
-                  <span>{{ isDark ? 'Light Mode' : 'Dark Mode' }}</span>
-                </Button>
-              </li>
+               <li role="none">
+                 <RouterLink 
+                   to="/" 
+                   class="mobile-nav-link flex items-center w-full px-3 py-2 text-sm font-medium rounded-lg hover:bg-muted/50 transition-colors duration-200"
+                   :class="{ 'bg-primary/10 text-primary': $route.path === '/' }"
+                   @click="closeMenu"
+                   role="menuitem"
+                   :aria-current="$route.path === '/' ? 'page' : 'false'"
+                 >
+                   {{ t('nav.home') }}
+                 </RouterLink>
+               </li>
+               <li role="none">
+                 <RouterLink 
+                   to="/services" 
+                   class="mobile-nav-link flex items-center w-full px-3 py-2 text-sm font-medium rounded-lg hover:bg-muted/50 transition-colors duration-200"
+                   :class="{ 'bg-primary/10 text-primary': $route.path === '/services' }"
+                   @click="closeMenu"
+                   role="menuitem"
+                   :aria-current="$route.path === '/services' ? 'page' : 'false'"
+                 >
+                   {{ t('nav.services') }}
+                 </RouterLink>
+               </li>
+               <li role="none">
+                 <RouterLink 
+                   to="/portfolio" 
+                   class="mobile-nav-link flex items-center w-full px-3 py-2 text-sm font-medium rounded-lg hover:bg-muted/50 transition-colors duration-200"
+                   :class="{ 'bg-primary/10 text-primary': $route.path === '/portfolio' }"
+                   @click="closeMenu"
+                   role="menuitem"
+                   :aria-current="$route.path === '/portfolio' ? 'page' : 'false'"
+                 >
+                   {{ t('nav.portfolio') }}
+                 </RouterLink>
+               </li>
+               <li class="pt-2 border-t border-border/50" role="none">
+                 <RouterLink 
+                   to="/contact" 
+                   class="flex items-center w-full px-3 py-2 text-sm font-medium bg-gradient-to-r from-primary to-secondary text-white rounded-lg hover:shadow-md transition-all duration-200"
+                   @click="closeMenu"
+                   role="menuitem"
+                   :aria-current="$route.path === '/contact' ? 'page' : 'false'"
+                 >
+                   {{ t('nav.contact') }}
+                 </RouterLink>
+               </li>
+                <li class="pt-2 border-t border-border/50" role="none">
+                  <Button 
+                    variant="outline" 
+                    class="w-full justify-start group"
+                    @click="toggleTheme"
+                    :aria-label="isDark ? t('nav.lightMode') : t('nav.darkMode')"
+                    role="menuitem"
+                  >
+                    <Sun v-if="!isDark" class="w-5 h-5 mr-2 text-yellow-500 group-hover:text-yellow-600 transition-colors" />
+                    <Moon v-else class="w-5 h-5 mr-2 text-blue-400 group-hover:text-blue-500 transition-colors" />
+                    <span>{{ isDark ? t('nav.lightMode') : t('nav.darkMode') }}</span>
+                  </Button>
+                </li>
+               <li class="pt-2 border-t border-border/50" role="none">
+                 <div class="space-y-2 p-2">
+                   <p class="text-xs font-semibold text-muted-foreground uppercase">{{ t('nav.language') }}</p>
+                   <div class="space-y-1">
+                     <button
+                       v-for="lang in availableLanguages"
+                       :key="lang.code"
+                       @click="selectLanguage(lang.code)"
+                       :class="[
+                         'w-full text-left px-3 py-2 text-sm font-medium rounded-lg hover:bg-muted/50 transition-colors duration-200',
+                         getLanguage === lang.code ? 'bg-primary/10 text-primary' : 'text-foreground'
+                       ]"
+                       role="menuitem"
+                       :aria-current="getLanguage === lang.code ? 'true' : 'false'"
+                     >
+                       {{ lang.name }}
+                     </button>
+                   </div>
+                 </div>
+               </li>
             </ul>
           </PopoverContent>
         </Popover>
@@ -174,21 +228,29 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import { Button } from '@/components/ui/button'
 import { Popover, PopoverTrigger, PopoverContent } from '@/components/ui/popover'
-import { MenuIcon, Moon, Sun } from 'lucide-vue-next'
+import { MenuIcon, Moon, Sun, Globe } from 'lucide-vue-next'
 import logoImage from '@/assets/images/logo.png'
 import { useDarkMode } from '@/composables/useDarkMode'
+import { useLanguage } from '@/composables/useLanguage'
 
 const isMenuOpen = ref(false)
+const isLanguageOpen = ref(false)
 const { theme, toggleTheme } = useDarkMode()
+const { getLanguage, availableLanguages, changeLanguage, t } = useLanguage()
 
-const isDark = () => theme.value === 'dark'
+const isDark = computed(() => theme.value === 'dark')
 
 const closeMenu = () => {
   isMenuOpen.value = false
+}
+
+const selectLanguage = (lang) => {
+  changeLanguage(lang)
+  isLanguageOpen.value = false
 }
 </script>
 
