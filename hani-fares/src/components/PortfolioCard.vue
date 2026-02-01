@@ -4,12 +4,14 @@
       <div class="group cursor-pointer">
         <div class="relative overflow-hidden rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10">
           <div class="grid md:grid-cols-2 gap-0">
-            <div class="relative overflow-hidden h-80 md:h-auto">
-              <img 
-                :src="image" 
-                :alt="title" 
-                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-              />
+             <div class="relative overflow-hidden h-80 md:h-auto">
+               <img 
+                 ref="mainImageRef"
+                 :src="image" 
+                 :alt="title" 
+                 loading="lazy"
+                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+               />
               <div class="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
               
               <div class="absolute top-4 left-4 flex gap-2">
@@ -97,13 +99,14 @@
 
     <DialogScrollContent class="max-w-[95vw] w-[95vw] md:max-w-[95vw] md:w-[95vw] max-h-[95vh] p-0 gap-0 !my-4">
       <div class="flex flex-col">
-        <div class="relative h-[40vh] md:h-[60vh] flex-shrink-0">
-          <div class="absolute inset-0 bg-black">
-            <img 
-              :src="selectedImage" 
-              :alt="title" 
-              class="w-full h-full object-contain" 
-            />
+         <div class="relative h-[40vh] md:h-[60vh] flex-shrink-0">
+           <div class="absolute inset-0 bg-black">
+             <img 
+               :src="selectedImage" 
+               :alt="title" 
+               loading="lazy"
+               class="w-full h-full object-contain" 
+             />
           </div>
           <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
           
@@ -144,18 +147,19 @@
               </div>
               
               <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
-                <div 
-                  v-for="(item, index) in gallery" 
-                  :key="index"
-                  @click="selectedImage = item.src"
-                  class="group relative aspect-square overflow-hidden rounded-xl md:rounded-2xl cursor-pointer border-2 md:border-4 transition-all duration-300 hover:scale-105"
-                  :class="selectedImage === item.src ? 'border-primary shadow-xl md:shadow-2xl shadow-primary/40 scale-105' : 'border-border hover:border-primary/50'"
-                >
-                  <img 
-                    :src="item.src" 
-                    :alt="item.title" 
-                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
+                 <div 
+                   v-for="(item, index) in gallery" 
+                   :key="index"
+                   @click="selectedImage = item.src"
+                   class="group relative aspect-square overflow-hidden rounded-xl md:rounded-2xl cursor-pointer border-2 md:border-4 transition-all duration-300 hover:scale-105"
+                   :class="selectedImage === item.src ? 'border-primary shadow-xl md:shadow-2xl shadow-primary/40 scale-105' : 'border-border hover:border-primary/50'"
+                 >
+                   <img 
+                     :src="item.src" 
+                     :alt="item.title"
+                     loading="lazy"
+                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                   />
                   <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div class="absolute bottom-0 left-0 right-0 p-2 md:p-4">
                       <p class="text-white text-xs md:text-sm font-semibold">{{ item.title }}</p>
@@ -281,6 +285,7 @@ import { Button } from '@/components/ui/button'
 import { Dialog, DialogTrigger, DialogScrollContent } from '@/components/ui/dialog'
 import { Separator } from '@/components/ui/separator'
 import { EyeIcon, ExternalLinkIcon, GithubIcon, CheckIcon, ArrowRightIcon, ImageIcon } from 'lucide-vue-next'
+import { useLazyLoad } from '@/composables/useLazyLoad'
 
 const props = defineProps({
   title: String,
@@ -300,6 +305,8 @@ const props = defineProps({
 const isOpen = ref(false)
 const selectedImage = ref(props.image)
 const isMobile = ref(false)
+const mainImageRef = ref(null)
+const { observe } = useLazyLoad()
 
 if (typeof window !== 'undefined') {
   isMobile.value = window.innerWidth < 768

@@ -1,14 +1,14 @@
 <template>
   <section class="min-h-screen pb-20">
     <div class="space-y-20">
-      <div class="text-center space-y-8 relative py-12">
+      <div class="text-center space-y-8 relative py-12 animate-fade-in-up">
         <div class="absolute inset-0 -z-10 overflow-hidden">
           <div class="absolute inset-0 bg-gradient-radial from-primary/10 via-transparent to-transparent"></div>
         </div>
         
         <div class="inline-block">
           <h1 class="text-6xl md:text-7xl font-black tracking-tight mb-4">
-            <span class="text-5xl md:text-6xl font-bold bg-gradient-to-r from-accent via-primary to-secondary bg-clip-text text-transparent animate-fade-in-up">
+            <span class="text-5xl md:text-6xl font-bold bg-gradient-to-r from-accent via-primary to-secondary bg-clip-text text-transparent">
               Featured Work
             </span>
           </h1>
@@ -20,7 +20,7 @@
         </p>
       </div>
 
-      <div class="flex justify-center gap-3 flex-wrap">
+      <div class="flex justify-center gap-3 flex-wrap animate-fade-in-up delay-200">
         <Button 
           @click="activeFilter = 'all'" 
           :variant="activeFilter === 'all' ? 'default' : 'outline'" 
@@ -47,7 +47,7 @@
         </Button>
       </div>
 
-      <div class="space-y-12">
+      <div class="space-y-12 animate-fade-in-up delay-400">
         <TransitionGroup name="project" tag="div" class="space-y-12">
           <div 
             v-for="project in filteredProjects" 
@@ -59,7 +59,7 @@
         </TransitionGroup>
       </div>
 
-      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-12 text-white">
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-12 text-white animate-fade-in-up delay-600">
         <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
         <div class="relative z-10">
           <div class="text-center mb-12">
@@ -104,6 +104,7 @@ import { Button } from '@/components/ui/button'
 import PortfolioCard from '@/components/PortfolioCard.vue'
 import syrresImage from '../assets/images/syr-res.png'
 import hausinternationalImage from '../assets/images/hausinternational.jpg'
+import ammarumariImage from '../assets/images/ammar-umari.webp'
 import menusImage from '../assets/images/menus.jpg'
 import menuImage from '../assets/images/menu.jpg'
 import eventImage from '../assets/images/event-management.jpg'
@@ -135,6 +136,20 @@ const projects = [
   },
   {
     id: 2,
+    title: 'Zahnarztpraxis Ammar Umari Webpage',
+    description: 'Professional website showcasing accommodation services with calendar integration.',
+    longDescription: 'Developed a website for a dental clinic Ammar Umari with integrated doctolib system, property management.',
+    image: ammarumariImage,
+    category: 'web',
+    technologies: ['HTML5', 'CSS3', 'JavaScript', 'PHP'],
+    features: ['Booking System', 'Property Management', 'SEO Optimized'],
+    link: 'https://zahnarztpraxis-umari.de/',
+    github: '#',
+    year: '2025',
+    client: 'Ammar Umari Dental Clinic'
+  },
+  {
+    id: 3,
     title: 'Hausinternational Webpage',
     description: 'Professional website showcasing accommodation services with calendar integration.',
     longDescription: 'Developed a website for Hausinternational Kempten with integrated calendar system, property management, and multilingual content support.',
@@ -148,7 +163,7 @@ const projects = [
     client: 'Hausinternational Kempten'
   },
   {
-    id: 3,
+    id: 4,
     title: 'Rebranding & Menu Design',
     description: 'Complete brand identity and menu design system for multiple restaurant chains.',
     longDescription: 'Created comprehensive menu designs and brand identity packages for various restaurants, including digital and print versions with QR code integration. The project encompassed menu layouts, business cards, promotional materials, and complete visual identity systems.',
@@ -164,20 +179,20 @@ const projects = [
       { src: menuImage, title: 'Restaurant Menu Layout', type: 'menu' }
     ]
   },
-  {
-    id: 4,
-    title: 'Event Management Platform',
-    description: 'Full-featured event management system with booking, payments, and vendor coordination.',
-    longDescription: 'Developed a comprehensive event management platform for wedding and event coordinators with client portals, vendor management, and payment processing.',
-    image: eventImage,
-    category: 'web',
-    technologies: ['Laravel', 'Vue.js', 'Stripe API', 'Docker'],
-    features: ['Event Planning', 'Vendor Management', 'Payment Processing', 'Client Portal'],
-    link: '#',
-    github: '#',
-    year: '2023',
-    client: 'Event Coordination Agency'
-  },
+  // {
+  //   id: 4,
+  //   title: 'Event Management Platform',
+  //   description: 'Full-featured event management system with booking, payments, and vendor coordination.',
+  //   longDescription: 'Developed a comprehensive event management platform for wedding and event coordinators with client portals, vendor management, and payment processing.',
+  //   image: eventImage,
+  //   category: 'web',
+  //   technologies: ['Laravel', 'Vue.js', 'Stripe API', 'Docker'],
+  //   features: ['Event Planning', 'Vendor Management', 'Payment Processing', 'Client Portal'],
+  //   link: '#',
+  //   github: '#',
+  //   year: '2023',
+  //   client: 'Event Coordination Agency'
+  // },
   {
     id: 5,
     title: 'Career Enhancement Services',
@@ -212,6 +227,25 @@ const filteredProjects = computed(() => {
     linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
   background-size: 40px 40px;
 }
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out both;
+}
+
+.delay-200 { animation-delay: 200ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-600 { animation-delay: 600ms; }
 
 .project-enter-active,
 .project-leave-active {

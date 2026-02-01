@@ -99,14 +99,17 @@
               </p>
               
               <!-- CTA Button -->
-              <Button 
-                as="RouterLink" 
-                to="/contact" 
-                class="bg-gradient-to-r from-primary cursor-pointer to-secondary hover:from-primary/80 hover:to-secondary/80 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-primary/25"
-              >
-                Get In Touch
-                <ArrowRightIcon class="w-4 h-4 ml-2" />
-              </Button>
+              <RouterLink to="/contact">
+                <Button
+                    as="RouterLink"
+
+                    class="mb-4 bg-gradient-to-r from-primary cursor-pointer to-secondary hover:from-primary/80 hover:to-secondary/80 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-primary/25"
+                >
+                  Get In Touch
+                  <ArrowRightIcon class="w-4 h-4 ml-2" />
+                </Button>
+              </RouterLink>
+
               
               <!-- Social Links -->
               <div class="flex justify-center gap-3">

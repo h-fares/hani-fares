@@ -27,7 +27,7 @@
           <!-- Animated Introduction -->
           <div class="animate-fade-in-up">
             <span class="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20 mb-4">
-              👋 Welcome to my digital world
+              Welcome to my digital world
             </span>
           </div>
           
@@ -293,7 +293,7 @@ import {
   RocketIcon 
 } from 'lucide-vue-next'
 import { RouterLink } from 'vue-router'
-import avatar from "@/assets/images/hani-without-bg.png";
+import avatar from "@/assets/images/hani-without-bg.webp";
 import pattern from "@/assets/images/iconpattern.png";
 import grain from "@/assets/images/grain.webp";
 import ProfileCard from "@/components/ProfileCard.vue";

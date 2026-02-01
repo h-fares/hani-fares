@@ -21,7 +21,7 @@
 
 <script setup lang="ts">
 import ProfileCard from "../components/ProfileCard.vue";
-import avatar from "../assets/images/hani-without-bg.png";
+import avatar from "../assets/images/hani-without-bg.webp";
 import pattern from "../assets/images/iconpattern.png"
 import grain from "../assets/images/grain.webp"
 const handleContactClick = () => {
